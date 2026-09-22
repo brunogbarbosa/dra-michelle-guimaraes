@@ -339,10 +339,11 @@
   .campaign-organic-one { width: 116vw; right: -46%; top: 6%; }
   .campaign-organic-two { width: 88vw; right: 18%; bottom: -18%; }
   .campaign-original {
-    object-fit: cover;
-    object-position: 50% 42%;
+    object-fit: contain;
+    object-position: center top;
     filter: saturate(.84) contrast(1.03) brightness(.78);
-    scale: 1.02;
+    transform: translateY(28px) scale(.97);
+    transform-origin: center top;
   }
 }
 
