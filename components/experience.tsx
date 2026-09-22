@@ -1,0 +1,19 @@
+'use client';
+import { CampaignHero } from './campaign-hero';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, X, Menu } from 'lucide-react';
+import { Chapters } from './chapters';
+import { site, appointmentUrl } from '@/data/site';
+
+function Label({children}:{children:React.ReactNode}){return <p className="eyebrow">{children}</p>}
+function Header(){
+ const [open,setOpen]=useState(false); const [scrolled,setScrolled]=useState(false); const dialog=useRef<HTMLDialogElement>(null); const trigger=useRef<HTMLButtonElement>(null);
+ useEffect(()=>{const onScroll=()=>setScrolled(window.scrollY>70);onScroll();window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll)},[]);
+ useEffect(()=>{if(open){dialog.current?.showModal();document.body.style.overflow='hidden'}else{dialog.current?.close();document.body.style.overflow=''}return()=>{document.body.style.overflow=''}},[open]);
+ const close=()=>{setOpen(false);trigger.current?.focus()};
+ return <><header className={scrolled?'header scrolled':'header'}><a className="wordmark" href="#inicio" aria-label={`${site.name}, início`}><span className="brand-monogram" aria-hidden="true">mg.</span><span className="brand-type">MICHELLE GUIMARÃES<small>BIOMEDICINA ESTÉTICA</small></span></a><nav className="desktop-nav" aria-label="Navegação principal"><a href="#sobre">A doutora</a><a href="#experiencia">A experiência</a>{site.results.enabled&&<a href="#resultados">Resultados</a>}</nav><button className="mobile-menu icon-button" ref={trigger} aria-label="Abrir menu" aria-expanded={open} onClick={()=>setOpen(true)}><Menu/></button></header><dialog ref={dialog} className="menu-dialog" onCancel={close} onClose={()=>setOpen(false)}><button className="menu-close icon-button" aria-label="Fechar menu" onClick={close}><X/></button><Label>{site.name}</Label><nav aria-label="Navegação mobile">{[['A doutora','sobre'],['A experiência','experiencia'],['Resultados','resultados'],['Vamos conversar','contato']].filter(([,id])=>id!=='resultados'||site.results.enabled).map(([name,id])=><a key={id} href={`#${id}`} onClick={close}>{name}<ArrowUpRight/></a>)}</nav></dialog></>;
+}
+export function Experience(){const root=useRef<HTMLDivElement>(null);
+ useEffect(()=>{const media=window.matchMedia('(prefers-reduced-motion: reduce)');if(media.matches)return;const animations:Animation[]=[];const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;animations.push(entry.target.animate([{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:850,easing:'cubic-bezier(.2,.7,.2,1)'}));observer.unobserve(entry.target)}),{threshold:.08});root.current?.querySelectorAll('[data-reveal]').forEach(el=>observer.observe(el));const stop=()=>{if(media.matches){animations.forEach(a=>a.cancel());observer.disconnect()}};media.addEventListener('change',stop);return()=>{observer.disconnect();animations.forEach(a=>a.cancel());media.removeEventListener('change',stop)}},[]);
+ return <div ref={root}><a className="skip-link" href="#manifesto">Pular para o conteúdo</a><Header/><main><CampaignHero/><Chapters/></main><footer className="footer"><div className="footer-main"><a href="#inicio" className="footer-name">{site.name.toUpperCase()}</a><div><a href={site.instagram} target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={14}/></a>{(site.whatsapp||site.whatsappUrl)&&<a href={appointmentUrl} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={14}/></a>}{site.phone&&<a href={`tel:${site.phone.replace(/[^\d+]/g,'')}`}>{site.phone}</a>}</div><div>{site.address&&<p>{site.address}</p>}{site.cro&&<p>{site.cro}</p>}<a href="#inicio">Voltar ao início ↑</a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>BIOMEDICINA ESTÉTICA</span></div></footer></div>
+}
