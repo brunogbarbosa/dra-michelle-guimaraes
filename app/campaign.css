@@ -76,21 +76,6 @@
   padding: 130px 6.3% 44px;
 }
 
-.campaign-inner::before {
-  content: 'MG';
-  position: absolute;
-  z-index: -1;
-  right: 2%;
-  top: 16%;
-  color: rgb(225 189 130 / .075);
-  font-family: var(--serif);
-  font-size: clamp(190px, 24vw, 430px);
-  font-weight: 400;
-  line-height: .75;
-  letter-spacing: -.12em;
-  pointer-events: none;
-}
-
 .campaign-portrait {
   position: absolute;
   inset: 108px 1.5% 0 43%;
@@ -351,7 +336,6 @@
   .campaign-silhouette { inset: 0; }
   .campaign-portrait { inset: 94px -11% 0 -2%; }
   .campaign-portrait::before { inset: 5% 3% 4% 12%; border-radius: 48% 52% 58% 42% / 44% 56% 42% 58%; }
-  .campaign-inner::before { top: 19%; right: -6%; font-size: 56vw; }
   .campaign-organic-one { width: 116vw; right: -46%; top: 6%; }
   .campaign-organic-two { width: 88vw; right: 18%; bottom: -18%; }
   .campaign-original {
