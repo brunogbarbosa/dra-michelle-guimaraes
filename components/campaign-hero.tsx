@@ -50,7 +50,7 @@ export function CampaignHero() {
         <div className="campaign-action"><a className="campaign-cta" href={appointmentUrl} target="_blank" rel="noreferrer"><span>AGENDAR AVALIAÇÃO</span><ArrowRight size={22} strokeWidth={1.2}/></a></div>
       </div>
       <figure className="campaign-portrait">
-        <div className="campaign-silhouette"><Image className="campaign-original" src="/images/michelle-hero.webp" alt="Dra. Michelle Guimarães" fill preload sizes="100vw"/></div>
+        <div className="campaign-silhouette"><Image className="campaign-original" src="/images/michelle-hero.webp" alt="Dra. Michelle Guimarães" fill preload sizes="(max-width: 700px) 115vw, 60vw"/></div>
       </figure>
       <SmileSeal/>
       <p className="campaign-editorial">Beleza<br/>com<br/>identidade<span aria-hidden="true"/></p>
