@@ -738,3 +738,19 @@
 @media(min-width:701px){.stage{height:clamp(560px,39vw,700px)}.photo img{object-position:50% 10%}}
 @media(max-width:700px){.copy h2{line-height:.92}.cardCopy{font-size:16px;line-height:1.5}.cardLabel{font-size:12px}.cta{font-size:14px;white-space:normal}.photo img{object-position:50% 35%}}
 .photo, .photo img { border: 0; border-radius: 0; outline: 0; box-shadow: none; }
+
+/* Keep the official seal in the document flow, clear of both lines of copy. */
+.closingRow { display: grid; grid-template-columns: minmax(0, 1fr) 96px; align-items: center; gap: clamp(25px, 4vw, 65px); max-width: 1200px; margin-inline: auto; }
+.closingStatement { display: block; white-space: normal; padding: 0; text-align: center; font-size: clamp(30px, 3vw, 48px); line-height: 1.12; }
+.closingStatement > * { width: auto; }
+.closingStatement em { margin-top: .12em; }
+.closingSeal { position: static; inset: auto; transform: none; display: block; }
+.closingSeal img { display: block; width: 96px; height: auto; }
+.closingNote { padding: 0; text-align: center; }
+@media (max-width: 700px) {
+  .closingRow { grid-template-columns: minmax(0, 1fr); gap: 23px; }
+  .closingStatement { font-size: clamp(27px, 7.7vw, 42px); line-height: 1.12; }
+  .closingSeal { justify-self: center; }
+  .closingSeal img { width: 77px; }
+  .closingNote { font-size: 12px; line-height: 1.5; margin-top: 20px; }
+}

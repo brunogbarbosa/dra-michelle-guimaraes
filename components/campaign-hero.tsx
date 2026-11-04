@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 import { appointmentUrl, site } from '@/data/site';
 import { useCampaignMotion } from './use-campaign-motion';
 
@@ -27,7 +27,7 @@ export function CampaignHero() {
           <span className="campaign-title-line"><span>sendo você.</span></span>
         </h1>
         <p className="campaign-subtitle">Um olhar preciso para valorizar seus traços, preservar sua essência e revelar a sua melhor versão.</p>
-        <div className="campaign-action"><a className="campaign-cta" href={appointmentUrl} target="_blank" rel="noreferrer"><span>AGENDAR MINHA AVALIAÇÃO</span><ArrowUpRight size={22} strokeWidth={1.4} /></a></div>
+        <div className="campaign-action"><a className="campaign-cta" href={appointmentUrl} target="_blank" rel="noreferrer"><span>AGENDAR ONLINE</span><ArrowUpRight size={22} strokeWidth={1.4} /></a><a className="campaign-whatsapp" href={site.whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={19} strokeWidth={1.4}/><span>FALAR PELO WHATSAPP</span><ArrowUpRight size={18} strokeWidth={1.4}/></a></div>
       </div>
       <div className="campaign-seal" aria-hidden="true"><Image src={site.brand.seal} alt="" width={118} height={118}/></div>
       <p className="campaign-editorial">O extraordinário<br /><em>é ser você.</em></p>

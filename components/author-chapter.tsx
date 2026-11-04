@@ -84,12 +84,11 @@ export function AuthorChapter() {
     <footer className={styles.closing}>
       <p className={styles.closingEyebrow} data-author-motion="final"><span />NOSSA FILOSOFIA DE CUIDADO<span /></p>
       <div className={styles.closingRow}>
-        <div className={styles.closingMonogram} aria-hidden="true"><Image className="official-seal" src="/brand/sublogo.webp" alt="" width={86} height={86}/><span /></div>
         <p className={styles.closingStatement}>
           <span data-author-motion="final">Naturalidade em cada escolha.</span>
           <em data-author-motion="final">Cuidado em cada encontro.</em>
         </p>
-        <div className={styles.closingSeal}><span aria-hidden="true" /><Image className="official-seal" src="/brand/sublogo.webp" alt="Marca oficial da Dra. Michelle Guimarães" width={96} height={96}/></div>
+        <div className={styles.closingSeal}><Image className="official-seal" src="/brand/sublogo.webp" alt="Marca oficial da Dra. Michelle Guimarães" width={96} height={96}/></div>
       </div>
       <p className={styles.closingNote} data-author-motion="final">Escuta, presença e intenção em cada detalhe.</p>
     </footer>

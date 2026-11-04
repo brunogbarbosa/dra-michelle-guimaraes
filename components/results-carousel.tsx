@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Flower2, Sprout, Sparkles, Expand } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Flower2, Sprout, Sparkles, Expand, Clock3, ChevronDown } from 'lucide-react';
 import { site, appointmentUrl, type Procedure, type ClinicalResult } from '@/data/site';
 import { ShareLink } from './share-link';
 import { ResultViewer } from './result-viewer';
@@ -16,7 +16,7 @@ type Category = typeof categories[number]['id'];
 const money = (value: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 
 function ProcedureSlide({ item, active, onOpen }: { item: Procedure; active: boolean; onOpen: (items: ClinicalResult[], index: number) => void }) {
-  const records = site.results.items.filter(record => record.procedureId === item.id);
+  const records = site.results.items.filter(record => record.procedureId === (item.resultGroup ?? item.id));
   const [photoIndex, setPhotoIndex] = useState(0);
   const photo = records[photoIndex];
   return <article className={`result-slide ${photo ? '' : 'result-slide-empty'}`} id={item.id} aria-label={item.name} aria-hidden={!active} inert={!active}>
@@ -30,8 +30,8 @@ function ProcedureSlide({ item, active, onOpen }: { item: Procedure; active: boo
     </div> : <div className="result-empty-art" aria-hidden="true">{item.category === 'capilar' ? <Sprout size={82} strokeWidth={.8}/> : <Flower2 size={82} strokeWidth={.8}/>}<p>Um cuidado.<br/><em>Todo seu.</em></p></div>}
     <div className="result-treatment"><p className="chapter-tag">{item.category} / CUIDADO INDIVIDUALIZADO</p><h3>{item.name}</h3><p>{item.description}</p>
       {records.length > 0 && <p className="result-records-note">{records.length} {records.length === 1 ? 'registro para conhecer de perto.' : 'registros para conhecer de perto.'}</p>}
-      <div className="result-investment"><span>INVESTIMENTO</span><strong>{item.price === null ? 'Consulte as condições' : money(item.price)}</strong>{item.priceNote && <small>{item.priceNote}</small>}</div>
-      <a className="chapter-link result-appointment" href={appointmentUrl} target="_blank" rel="noreferrer">Agendar avaliação<ArrowUpRight size={21}/></a><ShareLink id={item.id} label={item.name}/>
+      <div className="result-investment"><div><span>INVESTIMENTO</span><strong>{item.price === null ? 'Consulte as condições' : money(item.price)}</strong>{item.priceNote && <small>{item.priceNote}</small>}</div><div className="result-duration"><Clock3 size={19} strokeWidth={1.2}/><span>DURAÇÃO<strong>{item.duration}</strong></span></div></div>
+      <a className="chapter-link result-appointment" href={appointmentUrl} target="_blank" rel="noreferrer">Agendar procedimento<ArrowUpRight size={21}/></a><ShareLink id={item.id} label={item.name}/>
     </div>
   </article>;
 }
@@ -131,6 +131,11 @@ export function ResultsCarousel() {
     <div className="gallery-heading" data-reveal><h2 id="results-title">Resultados reais.<br/><em>Beleza singular.</em></h2><p>Explore as áreas de cuidado e conheça os registros. Cada plano respeita a sua identidade.</p></div>
     <div className="results-tabs" role="tablist" aria-label="Áreas dos resultados">{categories.map(({ id, label, Icon }, index) => <button type="button" role="tab" id={`tab-${id}`} key={id} aria-selected={category === id} aria-controls={id} tabIndex={category === id ? 0 : -1} onClick={() => selectCategory(id)} onKeyDown={event => tabKey(event, index)}><Icon size={23} strokeWidth={1.1}/><span>{label}</span><small>0{index + 1}</small></button>)}</div>
     <div className="results-area-intro"><p>{current.description}</p><ShareLink id={category} label={current.label}/></div>
+    <div className="results-navigation">
+      <label className="results-picker"><span>ESCOLHA SEU PROCEDIMENTO</span><div><select aria-label={`Escolher procedimento ${current.label.toLowerCase()}`} value={procedures[slide]?.id ?? procedures[0].id} onChange={event => moveTo(procedures.findIndex(item => item.id === event.target.value))}>{procedures.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select><ChevronDown size={18} aria-hidden="true"/></div></label>
+      <p aria-live="polite">{String(slide + 1).padStart(2, '0')} <span>/ {String(procedures.length).padStart(2, '0')}</span></p>
+      <div className="results-arrows"><button className="viewer-icon" disabled={slide === 0} aria-label="Procedimento anterior" onClick={() => moveTo(slide - 1)}><ArrowLeft size={22}/></button><button className="viewer-icon" disabled={slide === procedures.length - 1} aria-label="Próximo procedimento" onClick={() => moveTo(slide + 1)}><ArrowRight size={22}/></button></div>
+    </div>
     {categories.map(({ id, label }) => <section id={id} key={id} role="tabpanel" aria-labelledby={`tab-${id}`} hidden={category !== id} className="results-panel">
       <div ref={element => { if (element) rails.current[id] = element; }} className="result-rail" role="region" aria-roledescription="carrossel" aria-label={`Procedimentos da área ${label.toLowerCase()}`} tabIndex={0} onScroll={() => syncScroll(id)} onKeyDown={event => {
         if (event.target !== event.currentTarget) return;
@@ -138,7 +143,6 @@ export function ResultsCarousel() {
         if (event.key === 'ArrowLeft') { event.preventDefault(); moveTo(Math.max(0, slide - 1)); }
       }}>{site.procedures.filter(item => item.category === id).map((item, index) => <ProcedureSlide item={item} active={id === category && index === slide} key={item.id} onOpen={(items, photoIndex) => setViewer({ items, index: photoIndex })}/>)}</div>
     </section>)}
-    <div className="results-navigation"><div className="results-pagination" aria-label="Escolher procedimento">{procedures.map((item, index) => <button key={item.id} onClick={() => moveTo(index)} aria-label={`Ir para ${item.name}`} aria-current={slide === index ? 'true' : undefined}/>)}</div><p aria-live="polite">{String(slide + 1).padStart(2, '0')} <span>/ {String(procedures.length).padStart(2, '0')}</span></p><div className="results-arrows"><button className="viewer-icon" disabled={slide === 0} aria-label="Procedimento anterior" onClick={() => moveTo(slide - 1)}><ArrowLeft size={22}/></button><button className="viewer-icon" disabled={slide === procedures.length - 1} aria-label="Próximo procedimento" onClick={() => moveTo(slide + 1)}><ArrowRight size={22}/></button></div></div>
     <div className="gallery-end"><p>Fotografias compartilhadas pela Dra. {site.name}.<br/>Resultados individuais. Cada pessoa tem características próprias.</p><a className="chapter-link" href={appointmentUrl} target="_blank" rel="noreferrer">O seu primeiro passo<ArrowUpRight size={21}/></a></div>
     {viewer && <ResultViewer items={viewer.items} initialIndex={viewer.index} onClose={() => setViewer(null)}/>}
   </section>;
