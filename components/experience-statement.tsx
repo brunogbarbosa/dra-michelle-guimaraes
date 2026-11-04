@@ -2,50 +2,15 @@
 
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useSiteMotion } from './use-site-motion';
 import { site } from '@/data/site';
 import styles from './experience-statement.module.css';
 
 export function ExperienceStatement() {
   const root = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const section = root.current;
-    if (!section) return;
-
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let observer: IntersectionObserver | undefined;
-    let frame = 0;
-
-    const setup = () => {
-      observer?.disconnect();
-      window.cancelAnimationFrame(frame);
-      section.classList.remove(styles.motionReady, styles.motionArmed, styles.motionVisible);
-
-      if (media.matches || !('IntersectionObserver' in window)) return;
-
-      section.classList.add(styles.motionReady);
-      void section.offsetWidth;
-      frame = window.requestAnimationFrame(() => {
-        section.classList.add(styles.motionArmed);
-        observer = new IntersectionObserver(([entry]) => {
-          if (!entry?.isIntersecting) return;
-          section.classList.add(styles.motionVisible);
-          observer?.disconnect();
-        }, { threshold: .1, rootMargin: '0px 0px -8% 0px' });
-        observer.observe(section);
-      });
-    };
-
-    setup();
-    media.addEventListener('change', setup);
-
-    return () => {
-      observer?.disconnect();
-      window.cancelAnimationFrame(frame);
-      media.removeEventListener('change', setup);
-    };
-  }, []);
+  useSiteMotion(root, '[data-experience-motion]');
 
   return <section ref={root} className={styles.root} aria-labelledby="experience-statement-title">
     <svg className={styles.thread} viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">

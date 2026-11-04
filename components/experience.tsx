@@ -6,6 +6,7 @@ import { ArrowUpRight, X, Menu } from 'lucide-react';
 import { CampaignHero } from './campaign-hero';
 import { Chapters } from './chapters';
 import { site, appointmentUrl } from '@/data/site';
+import { useSiteMotion } from './use-site-motion';
 
 const navigation = [['Facial', 'facial'], ['Corporal', 'corporal'], ['Capilar', 'capilar'], ['Cursos', 'cursos']];
 
@@ -44,20 +45,7 @@ function Header() {
 
 export function Experience() {
   const root = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (media.matches) return;
-    const animations: Animation[] = [];
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      animations.push(entry.target.animate([{ opacity: 0, transform: 'translateY(22px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 850, easing: 'cubic-bezier(.2,.7,.2,1)' }));
-      observer.unobserve(entry.target);
-    }), { threshold: .08 });
-    root.current?.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-    const stop = () => { if (media.matches) { animations.forEach(a => a.cancel()); observer.disconnect(); } };
-    media.addEventListener('change', stop);
-    return () => { observer.disconnect(); animations.forEach(a => a.cancel()); media.removeEventListener('change', stop); };
-  }, []);
+  useSiteMotion(root);
   return <div ref={root}>
     <a className="skip-link" href="#manifesto">Pular para o conteúdo</a><Header/>
     <main><CampaignHero/><Chapters/></main>

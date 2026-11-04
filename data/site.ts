@@ -1,6 +1,7 @@
 export type Procedure = { id: string; category: 'facial' | 'corporal' | 'capilar'; name: string; description: string; image?: string; price: number | null; priceNote?: string };
 export type Course = { id: string; name: string; description: string; image?: string; price: number | null };
 export type Testimonial = { quote: string; name: string };
+export type ClinicalResult = { image: string; label: string; alt: string; orientation: string; beforeShare: number; comparisonRatio: number; width: number; height: number; procedureId: string };
 
 export const site = {
   name: 'Michelle Guimarães',
@@ -36,15 +37,15 @@ export const site = {
   office: [] as { src: string; alt: string }[],
   testimonials: [] as Testimonial[],
   results: { enabled: true, items: [
-    { image: '/images/resultado-harmonizacao.webp', label: 'Expressão preservada, traços valorizados', alt: 'Antes e depois de harmonização facial realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: 647 / 1284, comparisonRatio: 647 / 1315 },
-    { image: '/images/resultado-frontal.webp', label: 'Suavidade no olhar', alt: 'Antes e depois de tratamento estético na região frontal realizado pela Dra. Michelle Guimarães.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 1284 / 658 },
-    { image: '/images/resultado-testa.webp', label: 'Naturalidade em movimento', alt: 'Antes e depois de tratamento estético da testa realizado pela Dra. Michelle Guimarães.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 1284 / 647 },
-    { image: '/images/resultado-perfil.webp', label: 'Perfil com mais equilíbrio', alt: 'Antes e depois de harmonização de perfil realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .525, comparisonRatio: 642 / 1231 },
-    { image: '/images/resultado-facial.webp', label: 'Contorno e expressão', alt: 'Antes e depois de harmonização facial realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: 642 / 1252 },
-    { image: '/images/resultado-labios-01.webp', label: 'Volume com delicadeza', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1 },
-    { image: '/images/resultado-labios-02.webp', label: 'Contorno que respeita você', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1 },
-    { image: '/images/resultado-labios-03.webp', label: 'Definição e naturalidade', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1 },
-    { image: '/images/resultado-labios-04.webp', label: 'Beleza nos detalhes', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1 },
+    { image: '/images/resultado-harmonizacao.webp', label: 'Expressão preservada, traços valorizados', alt: 'Antes e depois de harmonização facial realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: 647 / 1284, comparisonRatio: 647 / 1315, width: 1284, height: 1315, procedureId: 'harmonizacao-facial' },
+    { image: '/images/resultado-frontal.webp', label: 'Região frontal / registro 01', alt: 'Registro de antes e depois da região frontal, compartilhado pela Dra. Michelle Guimarães.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 1284 / 658, width: 1284, height: 1316, procedureId: 'botox' },
+    { image: '/images/resultado-testa.webp', label: 'Região frontal / registro 02', alt: 'Registro de antes e depois da testa, compartilhado pela Dra. Michelle Guimarães.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 1284 / 647, width: 1284, height: 1295, procedureId: 'botox' },
+    { image: '/images/resultado-perfil.webp', label: 'Perfil com mais equilíbrio', alt: 'Antes e depois de harmonização de perfil realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .525, comparisonRatio: 642 / 1231, width: 1284, height: 1231, procedureId: 'harmonizacao-facial' },
+    { image: '/images/resultado-facial.webp', label: 'Contorno e expressão', alt: 'Antes e depois de harmonização facial realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: 642 / 1252, width: 1284, height: 1252, procedureId: 'harmonizacao-facial' },
+    { image: '/images/resultado-labios-01.webp', label: 'Volume com delicadeza', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1, width: 1284, height: 1323, procedureId: 'preenchimento-labial' },
+    { image: '/images/resultado-labios-02.webp', label: 'Contorno que respeita você', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1, width: 1284, height: 1355, procedureId: 'preenchimento-labial' },
+    { image: '/images/resultado-labios-03.webp', label: 'Definição e naturalidade', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1, width: 1284, height: 1323, procedureId: 'preenchimento-labial' },
+    { image: '/images/resultado-labios-04.webp', label: 'Beleza nos detalhes', alt: 'Resultado real de preenchimento labial realizado pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 1, width: 1284, height: 1298, procedureId: 'preenchimento-labial' },
   ] },
   seo: { title: 'Dra. Michelle Guimarães | Biomedicina Estética', description: 'Harmonização facial e corporal, tratamentos capilares e cuidado individualizado com a Dra. Michelle Guimarães. Agende sua avaliação.', url: '' },
 };

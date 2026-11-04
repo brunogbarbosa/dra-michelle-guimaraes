@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useId, useRef } from 'react';
+import { useId, useRef } from 'react';
+import { useSiteMotion } from './use-site-motion';
 import { ArrowUpRight, Heart, Leaf, UserRound } from 'lucide-react';
 import { site } from '@/data/site';
 
@@ -15,55 +16,7 @@ export function EssenceChapter() {
   const root = useRef<HTMLElement>(null);
   const uid = useId().replace(/:/g, '');
 
-  useEffect(() => {
-    const section = root.current;
-    if (!section) return;
-    const media = matchMedia('(prefers-reduced-motion: reduce)');
-    let stop = () => {};
-    const setup = () => {
-      stop();
-      if (media.matches) return;
-      const animations: Animation[] = [];
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const element = entry.target as HTMLElement;
-          const kind = element.dataset.essenceMotion;
-          const delay = Number(element.dataset.delay || 0);
-          let frames: Keyframe[] = [
-            { opacity: 0, transform: 'translateY(26px)' },
-            { opacity: 1, transform: 'translateY(0)' },
-          ];
-          let duration = 1400;
-          if (kind === 'title') frames = [
-            { opacity: 0, transform: 'translateY(110%)' },
-            { opacity: 1, transform: 'translateY(0)' },
-          ];
-          if (kind === 'line') {
-            frames = [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }];
-            duration = 2200;
-          }
-          if (kind === 'bead') {
-            frames = [
-              { opacity: 0, transform: 'translate(-5px, 6px)' },
-              { opacity: 1, transform: 'translate(3px, -4px)', offset: .6 },
-              { opacity: 1, transform: 'translate(0, 0)' },
-            ];
-            duration = 3000;
-          }
-          animations.push(element.animate(frames, {
-            duration, delay, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards',
-          }));
-          observer.unobserve(element);
-        });
-      }, { threshold: .12 });
-      section.querySelectorAll('[data-essence-motion]').forEach(element => observer.observe(element));
-      stop = () => { observer.disconnect(); animations.forEach(animation => animation.cancel()); };
-    };
-    setup();
-    media.addEventListener('change', setup);
-    return () => { stop(); media.removeEventListener('change', setup); };
-  }, []);
+  useSiteMotion(root, '[data-essence-motion]');
 
   return <section id="manifesto" className="essence-editorial" ref={root} aria-labelledby="essence-title">
     <div className="essence-stage">

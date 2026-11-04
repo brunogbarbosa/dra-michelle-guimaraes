@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import { useEffect, useId, useRef } from 'react';
+import { useId, useRef } from 'react';
+import { useSiteMotion } from './use-site-motion';
 import { site } from '@/data/site';
 import styles from './author-chapter.module.css';
 
@@ -12,43 +13,7 @@ export function AuthorChapter() {
   const root = useRef<HTMLElement>(null);
   const uid = useId().replace(/:/g, '');
 
-  useEffect(() => {
-    const section = root.current;
-    if (!section) return;
-
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let observer: IntersectionObserver | undefined;
-    let frame = 0;
-
-    const setup = () => {
-      observer?.disconnect();
-      window.cancelAnimationFrame(frame);
-      section.classList.remove(styles.motionReady, styles.motionArmed, styles.motionVisible);
-
-      if (media.matches || !('IntersectionObserver' in window)) return;
-
-      section.classList.add(styles.motionReady);
-      void section.offsetWidth;
-      frame = window.requestAnimationFrame(() => {
-        section.classList.add(styles.motionArmed);
-        observer = new IntersectionObserver(([entry]) => {
-          if (!entry?.isIntersecting) return;
-          section.classList.add(styles.motionVisible);
-          observer?.disconnect();
-        }, { threshold: .1, rootMargin: '0px 0px -8% 0px' });
-        observer.observe(section);
-      });
-    };
-
-    setup();
-    media.addEventListener('change', setup);
-
-    return () => {
-      observer?.disconnect();
-      window.cancelAnimationFrame(frame);
-      media.removeEventListener('change', setup);
-    };
-  }, []);
+  useSiteMotion(root, '[data-author-motion]');
 
   return <section id="sobre" ref={root} className={styles.root} aria-labelledby="author-title">
     <header className={styles.topline} data-author-motion="fade">
