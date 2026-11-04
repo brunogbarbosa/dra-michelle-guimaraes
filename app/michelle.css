@@ -1,0 +1,185 @@
+/* Premium Vendas V4, adapted to Michelle Guimarães' official identity. */
+:root { --brand-gold: #c6a24c; }
+.header:not(.scrolled), .header.scrolled { position: fixed; inset: 0 0 auto; }
+.header .brand-logo { width: 225px; height: 82px; object-fit: contain; }
+.header:not(.scrolled) .brand-logo, .footer-logo { filter: brightness(0) invert(1); }
+.header.scrolled { background: #fbf4f5f2; }
+.header-actions { display: flex; align-items: center; gap: 20px; }
+.header-booking { display: flex; align-items: center; gap: 17px; border-bottom: 1px solid currentColor; font-size: 12px; padding: 9px 0; }
+.menu-brand { width: 250px; height: auto; object-fit: contain; }
+.footer-logo { width: 280px; height: auto; }
+.official-seal { object-fit: contain; }
+.menu-dialog { background: var(--paper); }
+.campaign { background: #241c23; }
+.campaign::before { background: linear-gradient(90deg, #231a21 0%, #231a21f8 24%, #251b23d9 43%, #251b2370 66%, #211b1720 100%), linear-gradient(180deg, #231a212b, transparent 40%, #231a21d9 100%); }
+.campaign-original { object-position: center 30%; }
+.campaign-silhouette { mask-image: linear-gradient(90deg, transparent, black 22%), linear-gradient(180deg, transparent, black 35px); mask-composite: intersect; }
+.campaign-portrait { inset: 84px 0 0 39%; }
+.campaign-title-line:nth-child(3), .campaign-editorial em { color: #e0c38b; }
+.campaign-cta { background: #dcc18b; border-color: #dcc18b; color: #33232c; }
+.campaign-seal { bottom: 112px; width: 108px; height: 108px; }
+.campaign-seal img { width: 100%; height: 100%; object-fit: contain; opacity: .86; }
+.campaign-editorial { top: 45%; right: 4.5%; }
+.campaign-metrics { border-color: #eadac148; }
+.campaign-organic { border-color: #e0c38b50; }
+.campaign-organic-two { border-color: #e0c38b26; }
+.essence-editorial { background: var(--paper); }
+.essence-values { background: #f0e4e8; }
+.essence-value { background: #fff9f9bd; }
+.essence-value-icon { background: #e6d5dd; }
+.essence-smile { border-radius: 160px 160px 10px 10px; right: 4%; top: 25px; width: 42%; aspect-ratio: 2 / 3; }
+.essence-smile img { object-position: center 25%; }
+.gallery-chapter, .result-dialog, .footer { background: #30242c; }
+.gallery-heading p { max-width: 290px; }
+.comparison { max-width: 100%; }
+.social-chapter { background: #f0e5e9; }
+.closing-chapter { background: radial-gradient(ellipse at 85% 15%, #68314e, #2e212a 68%); }
+.gallery-chapter .chapter-tag, .courses-chapter .chapter-tag { color: #d7bd8e; }
+.care-catalog { padding: 100px 7% 80px; background: #fcf8f8; color: var(--wine); }
+.catalog-intro { display: flex; align-items: end; justify-content: space-between; gap: 50px; }
+.catalog-intro h2 { margin-top: 30px; font-size: clamp(55px, 6.1vw, 100px); }
+.catalog-intro > p { max-width: 285px; color: var(--muted); line-height: 1.75; }
+.care-index { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); margin-top: 55px; }
+.care-index a { position: relative; min-height: 112px; padding: 26px 23px; display: flex; align-items: center; gap: 15px; transition: background .3s; }
+.care-index a + a { border-left: 1px solid var(--line); }
+.care-index a > span { font-size: 10px; align-self: start; color: var(--muted); }
+.care-index a > svg:first-of-type { color: var(--dark); }
+.care-index strong { font-family: var(--serif); font-weight: 400; font-size: 35px; letter-spacing: -.04em; }
+.care-index a > svg:last-child { margin-left: auto; }
+.care-index a:hover { background: #f0e4e8; }
+.care-category { padding-top: 85px; scroll-margin-top: 90px; }
+.category-heading { position: relative; display: grid; grid-template-columns: 65px 1fr .65fr; align-items: center; gap: 27px; padding-bottom: 36px; }
+.category-icon { width: 65px; height: 65px; border: 1px solid #c6a24c80; border-radius: 50%; display: grid; place-items: center; color: var(--dark); }
+.category-heading h3 { font-size: clamp(36px, 3.7vw, 60px); line-height: 1.02; margin-top: 17px; }
+.category-heading > p { color: var(--muted); font-size: 15px; max-width: 300px; padding-bottom: 27px; }
+.category-heading > .share-control { position: absolute; right: 0; bottom: 28px; }
+.procedure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 27px; }
+.procedure-card { border: 1px solid #722a5026; background: #fffdfc; border-radius: 4px 4px 30px 4px; overflow: hidden; scroll-margin-top: 105px; min-width: 0; }
+.procedure-card-text { grid-column: 1 / -1; background: linear-gradient(115deg, #f0e4e9, #f9f3ee); }
+.procedure-image { position: relative; aspect-ratio: 1.1; background: #2e212a; }
+.procedure-image > img { object-fit: contain; }
+.procedure-image figcaption { position: absolute; inset: auto 0 0; padding: 12px 22px; font-size: 9px; letter-spacing: .12em; color: #fff8ef; background: linear-gradient(transparent, #22181ee6); }
+.procedure-copy { padding: 25px 30px 28px; }
+.procedure-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.procedure-top > span { font-size: 10px; letter-spacing: .14em; color: var(--muted); }
+.procedure-card h4 { font-family: var(--serif); font-size: clamp(31px, 3.3vw, 48px); font-weight: 400; letter-spacing: -.035em; line-height: 1.06; margin: 26px 0 15px; }
+.procedure-card p { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 490px; }
+.procedure-bottom { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 21px; display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+.procedure-bottom > div { display: flex; flex-direction: column; }
+.procedure-bottom small { font-size: 9px; letter-spacing: .16em; color: var(--muted); margin-bottom: 8px; }
+.procedure-bottom strong { font-weight: 400; font-size: 15px; }
+.procedure-bottom > div > span { font-size: 12px; color: var(--muted); }
+.procedure-book { display: flex; align-items: center; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--dark); font-size: 14px; white-space: nowrap; }
+.procedure-card-text .procedure-copy { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7%; padding: 35px 40px; }
+.procedure-card-text .procedure-top { grid-column: 1/-1; }
+.procedure-card-text h4 { align-self: center; font-size: clamp(35px, 4vw, 61px); margin-bottom: 0; }
+.procedure-card-text p { margin-top: 25px; align-self: center; }
+.procedure-card-text .procedure-bottom { grid-column: 1/-1; }
+.share-control { position: relative; }
+.share-link { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; min-height: 40px; padding: 3px 0; white-space: nowrap; }
+.share-link:hover { color: var(--dark); text-decoration: underline; text-underline-offset: 4px; }
+.share-manual { display: block; position: absolute; z-index: 10; right: 0; top: 100%; width: 250px; padding: 15px; background: var(--paper); color: var(--wine); box-shadow: 0 10px 40px #21192120; font-size: 12px; }
+.share-manual input { display: block; width: 100%; margin-top: 8px; border: 1px solid var(--line); padding: 9px; color: var(--wine); background: white; }
+.courses-chapter { display: grid; grid-template-columns: .95fr 1.05fr; color: #faf3ee; background: #34252f; }
+.courses-art { position: relative; min-height: 650px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; overflow: hidden; background: radial-gradient(ellipse at 30% 22%, #743b58, transparent 70%), #271c24; text-align: center; }
+.courses-art > img:not(.course-brand) { object-fit: cover; }
+.course-brand { width: 200px; height: 200px; object-fit: contain; position: relative; }
+.courses-art p { position: relative; font-size: 10px; letter-spacing: .18em; line-height: 2.5; }
+.courses-art p em { display: block; font-family: var(--serif); font-size: 26px; color: #e5c791; letter-spacing: -.015em; line-height: 1.3; }
+.course-orbit { position: absolute; width: 100%; height: 115%; border: 1px solid #d7bd8e3b; border-radius: 50%; transform: rotate(-25deg); }
+.course-orbit:after { content: ''; position: absolute; inset: 30px; border: 1px solid #d7bd8e21; border-radius: inherit; }
+.course-symbol { color: #d7bd8e; opacity: .7; }
+.courses-copy { padding: 90px 10%; display: flex; flex-direction: column; justify-content: center; }
+.courses-copy .chapter-tag { font-size: 10px; }
+.courses-copy h2 { font-size: clamp(43px, 4.6vw, 78px); margin: 30px 0; }
+.courses-copy h2 em { color: #d7bd8e; }
+.courses-copy > p:not(.chapter-tag) { color: #e0cfd6; font-size: 15px; line-height: 1.8; max-width: 440px; }
+.courses-copy > p + p { margin-top: 17px; }
+.courses-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 34px; }
+.courses-actions .chapter-link { background: #dcc18b; border-color: #dcc18b; color: #30242c; font-size: 13px; gap: 20px; }
+.courses-actions .share-link:hover { color: white; }
+.course-list { grid-column: 1/-1; padding: 0 7% 70px; display: grid; grid-template-columns: repeat(2,1fr); gap: 30px; }
+.course-list article { border-top: 1px solid #dcc18b50; padding-top: 30px; scroll-margin-top: 105px; }
+.course-list article h3 { font-size: 36px; }
+.course-list article p { margin: 20px 0; }
+.course-list article > a { display: flex; align-items: center; gap: 20px; margin-top: 15px; }
+.location-chapter { padding: 95px 7%; display: grid; grid-template-columns: 1.1fr 1fr; gap: 10%; align-items: center; background: #f5ecef; }
+.location-chapter h2 { margin: 28px 0; font-size: clamp(52px, 5.6vw, 85px); }
+.location-chapter > div > p:not(.chapter-tag) { color: var(--muted); max-width: 440px; margin-bottom: 28px; }
+.location-chapter .chapter-link { border-color: var(--line); gap: 20px; font-size: 14px; }
+.location-details { padding: 40px; border: 1px solid var(--line); border-radius: 120px 4px 4px 4px; background: #fbf4f599; }
+.location-details > svg { color: var(--dark); margin: 15px 0 25px; }
+.location-details h3 { font-size: 38px; }
+.location-details > span { display: block; font-size: 10px; letter-spacing: .17em; margin: 15px 0 28px; color: var(--muted); }
+.location-details a { display: flex; align-items: center; justify-content: space-between; font-size: 14px; border-top: 1px solid var(--line); padding: 20px 0 0; }
+.location-details a + a { margin-top: 18px; }
+.location-details iframe { width: 100%; height: 280px; border: 0; border-radius: 8px; margin-top: 25px; }
+@media (min-width: 1050px) { .header .desktop-nav { display: flex; gap: 30px; margin-left: auto; margin-right: 20px; font-size: 13px; } }
+@media (max-width: 1049px) { .header .desktop-nav { display: none; } .header-actions { margin-left: auto; } .header-booking { display: none; } }
+@media (max-width: 900px) { .care-index a { padding-inline: 12px; gap: 10px; } .care-index strong { font-size: 29px; } .care-index a > svg:first-of-type { display: none; } .courses-copy { padding: 65px 8%; } .courses-art { min-height: 620px; } }
+@media (max-width: 700px) {
+  .header .brand-logo { width: 170px; height: 70px; }
+  .header-actions { gap: 0; }
+  .header:not(.scrolled), .header.scrolled { height: 86px; padding-inline: 6%; }
+  .campaign-portrait { inset: 86px 0 25%; }
+  .campaign-silhouette { mask-image: linear-gradient(180deg, transparent, black 35px); }
+  .campaign-original { object-position: center 28%; }
+  .campaign::before { background: linear-gradient(180deg, #241c238f 0%, #241c2308 20%, #241c2322 37%, #241c23d9 60%, #241c23 77%, #241c23 100%); }
+  .campaign-seal { display: none; }
+  .campaign-topline { margin-top: 8px; font-size: 8px; }
+  .campaign-kicker { font-size: 9px; }
+  .campaign-copy { margin-bottom: 75px; }
+  .campaign h1 { font-size: clamp(52px, 14vw, 87px); }
+  .campaign-subtitle { font-size: 14px; max-width: 330px; }
+  .campaign-action { width: 100%; max-width: 360px; }
+  .campaign-cta { font-size: 11px; }
+  .campaign-metrics { font-size: 8px; letter-spacing: .035em; gap: 10px; }
+  .essence-smile { width: 88%; aspect-ratio: 2/3; margin: 32px 6% 0; border-radius: 150px 150px 4px 4px; }
+  .essence-smile img { object-position: center top; }
+  .care-catalog { padding: 55px 6%; }
+  .catalog-intro { display: block; }
+  .catalog-intro h2 { font-size: 13vw; margin-top: 24px; }
+  .catalog-intro > p { max-width: none; margin-top: 24px; font-size: 15px; }
+  .care-index { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 30px; }
+  .care-index a { min-height: 85px; padding: 18px 14px; }
+  .care-index a:nth-child(3) { border-left: 0; }
+  .care-index a:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .care-index strong { font-size: clamp(26px, 7vw, 32px); }
+  .care-index a { gap: 8px; padding-inline: 10px; }
+  .care-index a > span { font-size: 8px; }
+  .care-index a > svg:last-child { width: 14px; height: 14px; }
+  .care-category { padding-top: 55px; }
+  .category-heading { grid-template-columns: 45px 1fr; gap: 18px; padding-bottom: 22px; }
+  .category-icon { width: 45px; height: 45px; align-self: start; }
+  .category-icon svg { width: 25px; height: 25px; }
+  .category-heading .chapter-tag { font-size: 9px; letter-spacing: .07em; }
+  .category-heading h3 { font-size: 10vw; margin-top: 14px; }
+  .category-heading > p { grid-column: 1/-1; max-width: none; padding-bottom: 0; }
+  .category-heading > .share-control { position: static; grid-column: 1/-1; }
+  .procedure-grid { grid-template-columns: 1fr; gap: 22px; }
+  .procedure-copy { padding: 20px; }
+  .procedure-card-text .procedure-copy { display: block; padding: 23px; }
+  .procedure-card h4, .procedure-card-text h4 { font-size: 36px; margin-top: 20px; }
+  .procedure-card-text p { margin-top: 18px; }
+  .procedure-card p { font-size: 15px; }
+  .procedure-top > span { font-size: 9px; }
+  .procedure-bottom { margin-top: 23px; gap: 12px; }
+  .procedure-bottom strong { font-size: 14px; }
+  .procedure-book { gap: 10px; font-size: 13px; }
+  .procedure-image figcaption { font-size: 8px; letter-spacing: .055em; padding-inline: 12px; }
+  .courses-chapter { grid-template-columns: 1fr; }
+  .courses-art { min-height: 420px; }
+  .course-brand { width: 155px; height: 155px; }
+  .courses-copy { padding: 45px 6% 55px; }
+  .courses-copy h2 { font-size: 12.5vw; margin-block: 25px; }
+  .courses-actions { gap: 13px; }
+  .courses-actions .chapter-link { padding-inline: 20px; gap: 14px; font-size: 13px; }
+  .course-list { grid-template-columns: 1fr; }
+  .location-chapter { padding: 55px 6%; grid-template-columns: 1fr; gap: 35px; }
+  .location-chapter h2 { font-size: 13vw; }
+  .location-chapter .chapter-link { gap: 12px; padding-inline: 18px; font-size: 13px; }
+  .location-details { padding: 30px; border-radius: 75px 4px 4px; }
+  .location-details h3 { font-size: 33px; }
+  .footer-logo { width: 230px; }
+}
+@media (max-width: 360px) { .campaign h1 { font-size: 13.6vw; } .campaign-kicker { font-size: 8px; } .campaign-metrics { font-size: 7px; } .procedure-copy, .procedure-card-text .procedure-copy { padding: 18px; } .procedure-card h4 { font-size: 32px; } }

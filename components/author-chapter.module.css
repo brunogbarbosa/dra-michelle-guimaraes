@@ -1,13 +1,13 @@
 .root {
-  --author-paper: #f7f0e8;
-  --author-ink: #241719;
-  --author-muted: #705d54;
+  --author-paper: #fbf4f5;
+  --author-ink: #33232c;
+  --author-muted: #77676d;
   position: relative;
   isolation: isolate;
   overflow: hidden;
   background:
     radial-gradient(circle at 84% 13%, rgb(255 255 255 / .44), transparent 29%),
-    linear-gradient(180deg, #f2e8df 0%, var(--author-paper) 72%, #fbf7f2 100%);
+    linear-gradient(180deg, #f0e4e9 0%, var(--author-paper) 72%, #fff9fa 100%);
   color: var(--author-ink);
 }
 
@@ -821,5 +821,5 @@
 }
 .cardCopy{font-size:16px;line-height:1.55;letter-spacing:0}
 .cardLabel{font-size:12px;letter-spacing:.12em}
-@media(min-width:701px){.stage{height:clamp(560px,39vw,700px)}.photo img{object-position:50% 25%}}
+@media(min-width:701px){.stage{height:clamp(560px,39vw,700px)}.photo img{object-position:50% 10%}}
 @media(max-width:700px){.copy h2{line-height:.92}.cardCopy{font-size:16px;line-height:1.5}.cardLabel{font-size:12px}.cta{font-size:14px;white-space:normal}.photo img{object-position:50% 35%}}

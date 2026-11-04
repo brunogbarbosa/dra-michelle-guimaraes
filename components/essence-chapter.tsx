@@ -92,7 +92,7 @@ export function EssenceChapter() {
         <a className="essence-editorial-cta" href="#sobre" data-essence-motion="fade" data-delay="450"><span>Conheça o olhar por trás do cuidado</span><span className="essence-arrow"><ArrowUpRight size={24} strokeWidth={1.3}/></span></a>
       </div>
       <figure className="essence-smile" data-essence-motion="photo">
-        <Image src={site.images.essence} alt="Retrato da Dra. Michelle Guimarães com blazer vinho." fill sizes="(max-width:700px) 112vw, (max-width:1100px) 82vw, 67vw"/>
+        <Image src={site.images.essence} alt="Retrato atualizado da Dra. Michelle Guimarães com conjunto vinho e blusa clara." fill sizes="(max-width:700px) 100vw, 50vw"/>
       </figure>
       <p className="essence-margin-note">TRAÇOS REAIS<br/>HISTÓRIAS ÚNICAS<span aria-hidden="true"/></p>
     </div>

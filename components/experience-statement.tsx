@@ -2,27 +2,12 @@
 
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { site } from '@/data/site';
 import styles from './experience-statement.module.css';
 
-function ImageSeal({ id }: { id: string }) {
-  const sealPath = `${id}-experience-seal`;
-
-  return <svg className={styles.seal} viewBox="0 0 126 126" aria-hidden="true" focusable="false">
-    <defs>
-      <path id={sealPath} d="M 13,63 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
-    </defs>
-    <text className={styles.sealCopy} textLength="282" lengthAdjust="spacing">
-      <textPath href={`#${sealPath}`} startOffset="1%">NATURALIDADE · TÉCNICA · CUIDADO · </textPath>
-    </text>
-    <text className={styles.sealMark} x="63" y="74" textAnchor="middle">mg.</text>
-  </svg>;
-}
-
 export function ExperienceStatement() {
   const root = useRef<HTMLElement>(null);
-  const uid = useId().replace(/:/g, '');
 
   useEffect(() => {
     const section = root.current;
@@ -83,13 +68,13 @@ export function ExperienceStatement() {
     <figure className={styles.photo} data-experience-motion="photo">
       <Image
         src={site.images.beauty}
-        alt="Retrato da Dra. Michelle Guimarães em seu consultório."
+        alt="Dra. Michelle Guimarães em retrato profissional com produto utilizado na estética."
         fill
         sizes="(max-width: 700px) 94vw, (max-width: 1100px) 50vw, 45vw"
       />
       <span className={styles.photoWash} aria-hidden="true" />
       <p className={styles.photoCopy} data-experience-motion="photo-copy">SUA BELEZA.<br />SUA HISTÓRIA.<br />SUA ESSÊNCIA.<span aria-hidden="true" /></p>
-      <ImageSeal id={uid} />
+      <Image className={styles.seal} src={site.brand.seal} alt="Marca da Dra. Michelle Guimarães" width={126} height={126}/>
     </figure>
 
     <blockquote className={styles.quote} data-experience-motion="quote">

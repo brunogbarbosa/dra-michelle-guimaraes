@@ -5,6 +5,7 @@ import './globals.css';
 import './signature.css';
 import './campaign.css';
 import './essence.css';
+import './michelle.css';
 const metadataBase = new URL(site.seo.url || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000'));
 export const metadata: Metadata = {
   metadataBase,

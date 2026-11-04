@@ -8,22 +8,6 @@ import styles from './author-chapter.module.css';
 
 const biography = site.bio;
 
-function BrandSeal({ id }: { id: string }) {
-  const pathId = `${id}-author-seal`;
-
-  return <svg className={styles.seal} viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-    <defs>
-      <path id={pathId} d="M 15,60 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" />
-    </defs>
-    <text className={styles.sealText} textLength="280" lengthAdjust="spacing">
-      <textPath href={`#${pathId}`} startOffset="1%">BIOMEDICINA ESTÉTICA · MICHELLE GUIMARÃES · </textPath>
-    </text>
-    <text className={styles.sealMark} x="60" y="70" textAnchor="middle">mg.</text>
-    <circle cx="8" cy="60" r="1.6" />
-    <circle cx="112" cy="60" r="1.6" />
-  </svg>;
-}
-
 export function AuthorChapter() {
   const root = useRef<HTMLElement>(null);
   const uid = useId().replace(/:/g, '');
@@ -86,7 +70,7 @@ export function AuthorChapter() {
       <figure className={styles.photo} data-author-motion="photo">
         <Image
           src={site.images.about}
-          alt="Dra. Michelle Guimarães em seu consultório."
+          alt="Retrato profissional atualizado da Dra. Michelle Guimarães com conjunto vinho."
           fill
           sizes="(max-width: 700px) 51vw, (max-width: 1100px) 56vw, 54vw"
         />
@@ -135,12 +119,12 @@ export function AuthorChapter() {
     <footer className={styles.closing}>
       <p className={styles.closingEyebrow} data-author-motion="final"><span />NOSSA FILOSOFIA DE CUIDADO<span /></p>
       <div className={styles.closingRow}>
-        <div className={styles.closingMonogram} aria-hidden="true"><strong>mg.</strong><span /></div>
+        <div className={styles.closingMonogram} aria-hidden="true"><Image className="official-seal" src="/brand/sublogo.webp" alt="" width={86} height={86}/><span /></div>
         <p className={styles.closingStatement}>
           <span data-author-motion="final">Naturalidade em cada escolha.</span>
           <em data-author-motion="final">Cuidado em cada encontro.</em>
         </p>
-        <div className={styles.closingSeal}><span aria-hidden="true" /><BrandSeal id={uid} /></div>
+        <div className={styles.closingSeal}><span aria-hidden="true" /><Image className="official-seal" src="/brand/sublogo.webp" alt="Marca oficial da Dra. Michelle Guimarães" width={96} height={96}/></div>
       </div>
       <p className={styles.closingNote} data-author-motion="final">Escuta, presença e intenção em cada detalhe.</p>
     </footer>
