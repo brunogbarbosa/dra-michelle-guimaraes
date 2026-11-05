@@ -529,3 +529,12 @@
 .photoCopy{color:var(--ivory);text-shadow:0 1px 8px #30251f}
 .photoWash{background:linear-gradient(0deg,#30251f66,transparent 40%)}
 .photo, .photo img { border: 0; border-radius: 0; outline: 0; box-shadow: none; }
+.photo { width: min(40%, 500px); height: auto; aspect-ratio: 570 / 854; background: transparent; }
+.photo > img:not(.seal) { object-fit: contain; object-position: center top; }
+.photoCopy { top: auto; bottom: 6%; right: 6%; }
+.photoWash { background: linear-gradient(0deg, #30242c55, transparent 24%); }
+@media (min-width: 1101px) { .root { height: clamp(840px, 62vw, 1120px); } }
+@media (min-width: 701px) and (max-width: 1100px) { .photo { top: 6%; } }
+@media (max-width: 700px) {
+  .photo { width: 100%; max-width: 447px; height: auto; aspect-ratio: 570 / 854; margin: 28px auto 0; }
+}

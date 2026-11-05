@@ -78,6 +78,8 @@ Os arquivos WebP já são redimensionados e comprimidos antes da publicação e 
 
 ## Movimento
 
+Os retratos do hero, essência, apresentação e experiência preservam a proporção original com `object-fit: contain`. As seções acompanham a altura das imagens para evitar cortes em telas largas ou baixas. O retrato do hero não recebe filtro de escurecimento nem máscara superior; a navegação usa fundo liso, sem sombra, degradê ou desfoque, no desktop e no celular.
+
 As entradas de seção usam `use-site-motion.ts`: duração curta, uma execução por elemento e suporte à preferência de movimento reduzido, inclusive quando ela muda com a página aberta. O hero usa uma entrada finita, sem deslocar o retrato com o ponteiro ou a rolagem e sem reiniciar ao voltar ao topo. Não há loops de animação contínuos.
 
 ## Próximo envio de conteúdo

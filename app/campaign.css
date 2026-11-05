@@ -1,8 +1,8 @@
 .header { z-index: 30; border: 0; transition: height .35s, background-color .35s, color .35s; }
-.header:not(.scrolled) { position: absolute; inset: 0 0 auto; height: 104px; color: #f7f3ee; background: linear-gradient(180deg, rgb(18 15 14 / .52), transparent); }
+.header:not(.scrolled) { position: absolute; inset: 0 0 auto; height: 104px; color: #33232c; background: #fbf4f5; }
 .header:not(.scrolled) .brand-monogram, .header:not(.scrolled) .brand-type small { color: #dcc3aa; }
-.header:not(.scrolled) .mobile-menu { color: #f7f3ee; border-color: #ffffff66; background: #201b1970; backdrop-filter: blur(12px); }
-.header.scrolled { position: sticky; top: 0; height: 80px; margin-bottom: 0; background: #f7f3eef2; backdrop-filter: blur(18px); }
+.header:not(.scrolled) .mobile-menu { color: #33232c; border-color: #722a5030; background: transparent; }
+.header.scrolled { position: sticky; top: 0; height: 80px; margin-bottom: 0; background: #fbf4f5; }
 .desktop-nav { display: none; }
 .mobile-menu { display: grid; }
 
@@ -12,7 +12,7 @@
 .campaign::after { background: radial-gradient(ellipse at 80% 38%, transparent 0%, #18151355 80%); mix-blend-mode: multiply; }
 .campaign-portrait { position: absolute; z-index: 0; inset: 0 0 0 40%; pointer-events: none; }
 .campaign-silhouette { position: absolute; inset: 0; overflow: hidden; }
-.campaign-original { object-fit: cover; object-position: center 35%; filter: saturate(.82) contrast(1.08) brightness(.87); transform: scale(1.015); }
+.campaign-original { object-fit: contain; object-position: center top; filter: none; transform: none; }
 .campaign-organic { position: absolute; z-index: 2; pointer-events: none; border: 1px solid #e9d4ba52; }
 .campaign-organic-one { width: 57vw; height: 72vw; max-height: 1060px; right: -7vw; top: -19vw; border-radius: 50%; transform: rotate(22deg); }
 .campaign-organic-two { width: 49vw; height: 65vw; max-height: 950px; right: -3vw; top: -14vw; border-radius: 50%; transform: rotate(22deg); border-color: #e9d4ba28; }
@@ -58,7 +58,7 @@
   .header .mobile-menu { width: 45px; height: 45px; }
   .campaign { height: max(100svh, 780px); min-height: 780px; max-height: none; }
   .campaign-portrait { inset: 0 0 28% 0; }
-  .campaign-original { object-position: center 22%; filter: saturate(.86) contrast(1.03) brightness(.86); }
+  .campaign-original { object-position: center top; filter: none; }
   .campaign::before { background: linear-gradient(180deg, #181412a6 0%, #18141208 18%, #18141213 35%, #181412d5 58%, #181412 74%, #181412 100%); }
   .campaign::after { background: linear-gradient(90deg, #1915136e, transparent 38%); }
   .campaign-inner { padding: 102px 6% 24px; }

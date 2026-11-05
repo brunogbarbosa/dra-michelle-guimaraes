@@ -1,28 +1,33 @@
 /* Premium Vendas V4, adapted to Michelle Guimarães' official identity. */
 :root { --brand-gold: #c6a24c; }
-.header:not(.scrolled), .header.scrolled { position: fixed; inset: 0 0 auto; }
+body .header:not(.scrolled), body .header.scrolled { position: fixed; inset: 0 0 auto; background: #fbf4f5; color: #33232c; background-image: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .header .brand-logo { width: 225px; height: 82px; object-fit: contain; }
-.header:not(.scrolled) .brand-logo, .footer-logo { filter: brightness(0) invert(1); }
-.header.scrolled { background: #fbf4f5f2; }
+.header:not(.scrolled) .brand-logo { filter: none; }
+.footer-logo { filter: brightness(0) invert(1); }
+.header.scrolled { background: #fbf4f5; }
+.header .mobile-menu { color: #33232c; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .header-actions { display: flex; align-items: center; gap: 20px; }
 .header-booking { display: flex; align-items: center; gap: 17px; border-bottom: 1px solid currentColor; font-size: 12px; padding: 9px 0; }
 .menu-brand { width: 250px; height: auto; object-fit: contain; }
 .footer-logo { width: 280px; height: auto; }
 .official-seal { object-fit: contain; }
 .menu-dialog { background: var(--paper); }
-.campaign { background: #241c23; }
-.campaign::before { background: linear-gradient(90deg, #231a21 0%, #231a21f8 24%, #251b23d9 43%, #251b2370 66%, #211b1720 100%), linear-gradient(180deg, #231a212b, transparent 40%, #231a21d9 100%); }
-.campaign-original { object-position: center 30%; }
-.campaign-silhouette { mask-image: linear-gradient(90deg, transparent, black 22%), linear-gradient(180deg, transparent, black 35px); mask-composite: intersect; }
-.campaign-portrait { inset: 84px 0 0 39%; }
+.campaign { background: #30242c; }
+.campaign::before { background: linear-gradient(90deg, #30242c 0%, #30242c 39%, #30242c00 58%); }
+.campaign::after { display: none; }
+.campaign-original { object-position: center top; object-fit: contain; filter: none; transform: none; }
+.campaign-silhouette { mask-image: none; }
+.campaign-portrait { inset: 128px 3% 35px 48%; }
 .campaign-title-line:nth-child(3), .campaign-editorial em { color: #e0c38b; }
 .campaign-cta { background: #dcc18b; border-color: #dcc18b; color: #33232c; }
 .campaign-seal { bottom: 112px; width: 108px; height: 108px; }
 .campaign-seal img { width: 100%; height: 100%; object-fit: contain; opacity: .86; }
-.campaign-editorial { top: 45%; right: 4.5%; }
+.campaign-editorial { display: none; }
 .campaign-metrics { border-color: #eadac148; }
-.campaign-organic { border-color: #e0c38b50; }
+.campaign-organic { border-color: #e0c38b50; z-index: 0; }
 .campaign-organic-two { border-color: #e0c38b26; }
+@media (min-width: 701px) { .campaign { min-height: 850px; max-height: none; } }
+@media (min-width: 1101px) { .campaign { min-height: 900px; } }
 .essence-editorial { background: var(--paper); }
 .essence-values { background: #f0e4e8; }
 .essence-value { background: #fff9f9bd; }
@@ -121,10 +126,10 @@
   .header .brand-logo { width: 170px; height: 70px; }
   .header-actions { gap: 0; }
   .header:not(.scrolled), .header.scrolled { height: 86px; padding-inline: 6%; }
-  .campaign-portrait { inset: 86px 0 25%; }
-  .campaign-silhouette { mask-image: linear-gradient(180deg, transparent, black 35px); }
-  .campaign-original { object-position: center 28%; }
-  .campaign::before { background: linear-gradient(180deg, #241c238f 0%, #241c2308 20%, #241c2322 37%, #241c23d9 60%, #241c23 77%, #241c23 100%); }
+  .campaign-portrait { inset: 108px 0 25%; }
+  .campaign-silhouette { mask-image: none; }
+  .campaign-original { object-position: center top; }
+  .campaign::before { background: linear-gradient(180deg, transparent 0%, transparent 37%, #30242c99 54%, #30242c 72%, #30242c 100%); }
   .campaign-seal { display: none; }
   .campaign-topline { margin-top: 8px; font-size: 8px; }
   .campaign-kicker { font-size: 9px; }
