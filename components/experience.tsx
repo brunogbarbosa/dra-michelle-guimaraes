@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, X, Menu } from 'lucide-react';
 import { CampaignHero } from './campaign-hero';
 import { Chapters } from './chapters';
+import { ClinicMap } from './clinic-map';
 import { site, appointmentUrl } from '@/data/site';
 import { useSiteMotion } from './use-site-motion';
 
@@ -50,6 +51,7 @@ export function Experience() {
   return <div ref={root}>
     <a className="skip-link" href="#manifesto">Pular para o conteúdo</a><Header/>
     <main><CampaignHero/><Chapters/></main>
+    <ClinicMap/>
     <footer className="footer"><div className="footer-main">
       <a href="#inicio" className="footer-name"><Image className="footer-logo" src={site.brand.logo} alt="Dra. Michelle Guimarães" width={300} height={123}/></a>
       <div><Link href="/procedimentos">Revista de procedimentos<ArrowUpRight size={14}/></Link>{navigation.map(([name, id]) => <a href={`#${id}`} key={id}>{name}</a>)}</div>

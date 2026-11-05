@@ -40,7 +40,6 @@ export function JournalPhotoGallery({ photos, name }: { photos: ClinicalResult[]
       </div>
     </div>
     <p className={styles.photoCaption}>{photo.label}</p>
-    {photos.length > 1 && <div className={styles.thumbnails}>{photos.map((item, index) => <button type="button" key={item.image} onClick={() => moveTo(index)} aria-pressed={index === current} aria-label={`Ver foto ${index + 1} de ${name}`}><Image src={item.image} alt="" width={item.width} height={item.height} sizes="54px" loading="lazy"/></button>)}<span>Um olhar<br/>mais próximo.</span></div>}
     {viewing && <ResultViewer items={photos} initialIndex={current} onClose={() => setViewing(false)}/>}
   </div>;
 }

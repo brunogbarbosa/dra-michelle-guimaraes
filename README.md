@@ -8,7 +8,13 @@ A página pública `/procedimentos` apresenta os 19 procedimentos em formato de 
 
 Cada procedimento tem sua própria âncora na revista, por exemplo `/procedimentos#preenchimento-labial`. O botão **Copiar link** preserva o caminho da página. Todos os procedimentos estão no HTML da revista, sem depender de filtros para abrir um link direto. As âncoras antigas da página inicial continuam funcionando.
 
-As galerias oferecem setas acima das fotos, miniaturas, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. Os sete procedimentos faciais sem fotografias têm espaços vazios reservados; nenhum registro genérico foi atribuído a eles. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
+Cada procedimento ocupa um bloco branco independente, separado por espaço do próximo. Os títulos, descrições e preços seguem a mesma hierarquia e o mesmo alinhamento, sem alternância de colunas ou frases decorativas repetidas. As galerias da revista oferecem setas acima das fotos, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. Os sete procedimentos faciais sem fotografias têm espaços vazios reservados; nenhum registro genérico foi atribuído a eles. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
+
+A seção de resultados da página inicial convida à revista por uma chamada com capa ilustrativa, um link no título e um botão em cada procedimento, que abre sua âncora correspondente na revista.
+
+## Localização
+
+Endereço informado: **Estrada Padre Roser, 42 - Sala 707, Vila da Penha, Rio de Janeiro - RJ, 21210-623**. As duas páginas têm mapa interativo perto do rodapé, com links para abrir o Google Maps e traçar a rota. `data/clinic.ts` gera os links a partir de `site.address`. O endereço não pressupõe a existência de um perfil comercial verificado; as avaliações ainda aguardam o link oficial.
 
 A identidade utiliza vinho `#72192f`, vinho profundo, dourado e marfim quente. Fundos, sombras, degradês e detalhes antes puxados para uva foram ajustados, preservando a composição aprovada do hero. O favicon SVG usa esse mesmo vinho com a marca branca original. A revista reutiliza a imagem de compartilhamento existente.
 
@@ -104,6 +110,6 @@ Apontamentos configurados: `A @ → 216.198.79.1` e `CNAME www → 0be111eac8489
 
 - Novas fotografias dos procedimentos que ainda não têm registros próprios e aprovação das descrições. Em `site.procedures`, `price` é um número em reais e `duration` é a duração exibida na agenda. Cadastre fotos em `site.results.items` com o grupo correto e as dimensões reais do arquivo.
 - Cursos, valores, formatos, datas e fotografias de aulas ou entrega de certificados. Preencha `site.courses` e `site.courseImage`. Enquanto não houver esse material, a seção usa composição de marca e contato para informações, sem inventar cursos ou certificados.
-- Link oficial do Google Meu Negócio, endereço e número de registro profissional. `site.googleBusiness` está preparado para `profileUrl`, `reviewsUrl` e `embedUrl` (URL de incorporação oficial do Google Maps). O usuário informou que enviará o link depois; nenhum perfil de terceiros foi associado.
+- Link oficial do Google Meu Negócio e número de registro profissional. `site.googleBusiness` está preparado para `profileUrl`, `reviewsUrl` e `embedUrl` (URL de incorporação oficial do Google Maps). O endereço já foi fornecido; nenhum perfil comercial de terceiros foi associado.
 
 Cursos permanecem com a composição existente, conforme solicitado nesta rodada. O Google Meu Negócio aguarda os dados do próximo envio.

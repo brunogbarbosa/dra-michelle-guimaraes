@@ -1,0 +1,22 @@
+.root { display: grid; grid-template-columns: .65fr 1fr; gap: 8%; align-items: center; margin-top: 55px; padding: 48px 5%; background: #f8f0e6; color: #4b0d1a; }
+.art { position: relative; width: 205px; height: 280px; justify-self: center; }
+.backCover { position: absolute; inset: 8px -6px -8px 6px; transform: rotate(5deg); background: #c7ad85; }
+.cover { position: relative; height: 100%; padding: 23px 20px; background: #72192f; color: #fcf6ef; transform: rotate(-5deg); box-shadow: 6px 12px 22px #4b0d1a20; display: flex; flex-direction: column; }
+.cover > img { width: 128px; height: auto; object-fit: contain; filter: brightness(0) invert(1); }
+.cover > span { margin-top: 26px; font-size: 6px; letter-spacing: .12em; color: #e7cf9b; }
+.cover > p { margin-top: 15px; font-family: var(--serif); font-size: 34px; line-height: 1; letter-spacing: -.035em; }
+.cover > p > em { color: #e5c890; }
+.cover > small { font-size: 6px; letter-spacing: .1em; margin-top: auto; padding-top: 12px; border-top: 1px solid #ead5b75c; }
+.eyebrow { display: flex; align-items: center; gap: 9px; font-size: 9px; line-height: 1.6; letter-spacing: .06em; color: #80634d; }
+.copy h3 { font-size: clamp(32px, 3.4vw, 49px); line-height: 1.08; margin-top: 18px; }
+.copy h3 em { color: #72192f; }
+.description { font-size: 15px; line-height: 1.8; color: #70564e; max-width: 420px; margin-top: 19px; }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 56px; margin-top: 25px; padding: 15px 23px; background: #72192f; color: #fff; border-radius: 32px; font-size: 13px; transition: background .2s; }
+.button:hover { background: #4b0d1a; }
+.button svg { transition: transform .2s; }
+.button:hover svg { transform: translate(3px, -3px); }
+.button:focus-visible { outline: 2px solid #a47b30; outline-offset: 5px; }
+.note { font-size: 10px; color: #80634d; margin-top: 15px; }
+@media (max-width: 900px) { .root { gap: 6%; padding-inline: 4%; } .art { width: 180px; height: 260px; } .cover { padding-inline: 18px; } .cover > p { font-size: 30px; } .copy h3 { font-size: 34px; } .description { font-size: 14px; } }
+@media (max-width: 600px) { .root { grid-template-columns: 1fr; gap: 35px; padding: 35px 23px 30px; margin-top: 35px; } .art { width: 156px; height: 218px; } .cover { padding: 18px 16px; } .cover > img { width: 108px; } .cover > span { font-size: 5px; margin-top: 18px; } .cover > p { font-size: 28px; margin-top: 12px; } .cover > small { font-size: 5px; } .eyebrow { font-size: 8px; } .copy h3 { font-size: 32px; } .description { font-size: 14px; margin-top: 17px; } .button { display: flex; width: 100%; font-size: 12px; gap: 12px; padding-inline: 18px; } .note { font-size: 9px; } }
+@media (prefers-reduced-motion: reduce) { .button, .button svg { transition: none; } }

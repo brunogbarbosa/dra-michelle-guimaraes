@@ -26,8 +26,8 @@ export function JournalNavigation() {
     return () => { observer.disconnect(); window.removeEventListener('hashchange', readHash); };
   }, []);
   return <nav className={styles.navigation} aria-label="Índice da revista" id="indice">
-    <div className={styles.navigationInner}><div className={styles.areaLinks}>{procedureAreas.map((area, index) => <a href={`#${area.id}`} key={area.id} aria-current={active === area.id ? 'location' : undefined}><span>0{index + 1}</span>{area.title}<small>{site.procedures.filter(item => item.category === area.id).length}</small></a>)}</div>
-      <label className={styles.procedurePicker}><span>IR DIRETO AO PROCEDIMENTO</span><div><select aria-label="Escolher procedimento na revista" value={selected} onChange={event => { if (event.target.value) { setSelected(event.target.value); window.location.hash = event.target.value; } }}><option value="" disabled>Encontre o seu cuidado</option>{procedureAreas.map(area => <optgroup key={area.id} label={area.title}>{site.procedures.filter(item => item.category === area.id).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</optgroup>)}</select><ChevronDown size={16}/></div></label>
+    <div className={styles.navigationInner}><div className={styles.areaLinks}>{procedureAreas.map(area => <a href={`#${area.id}`} key={area.id} aria-current={active === area.id ? 'location' : undefined}>{area.title}</a>)}</div>
+      <label className={styles.procedurePicker}><span>BUSCAR PROCEDIMENTO</span><div><select aria-label="Escolher procedimento na revista" value={selected} onChange={event => { if (event.target.value) { setSelected(event.target.value); window.location.hash = event.target.value; } }}><option value="" disabled>Escolha um procedimento</option>{procedureAreas.map(area => <optgroup key={area.id} label={area.title}>{site.procedures.filter(item => item.category === area.id).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</optgroup>)}</select><ChevronDown size={16}/></div></label>
     </div>
   </nav>;
 }

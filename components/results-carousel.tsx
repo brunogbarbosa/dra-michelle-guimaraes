@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Flower2, Sprout, Sparkles, Expand,
 import { site, appointmentUrl, type Procedure, type ClinicalResult } from '@/data/site';
 import { ShareLink } from './share-link';
 import { ResultViewer } from './result-viewer';
+import { JournalInvitation } from './journal-invitation';
 
 const categories = [
   { id: 'facial', label: 'Facial', description: 'Região frontal, lábios, contorno e perfil. Um olhar individual para cada expressão.', Icon: Sparkles },
@@ -32,7 +33,7 @@ function ProcedureSlide({ item, active, onOpen }: { item: Procedure; active: boo
     <div className="result-treatment"><p className="chapter-tag">{item.category} / CUIDADO INDIVIDUALIZADO</p><h3>{item.name}</h3><p>{item.description}</p>
       {records.length > 0 && <p className="result-records-note">{records.length} {records.length === 1 ? 'registro para conhecer de perto.' : 'registros para conhecer de perto.'}</p>}
       <div className="result-investment"><div><span>INVESTIMENTO</span><strong>{item.price === null ? 'Consulte as condições' : money(item.price)}</strong>{item.priceNote && <small>{item.priceNote}</small>}</div><div className="result-duration"><Clock3 size={19} strokeWidth={1.2}/><span>DURAÇÃO<strong>{item.duration}</strong></span></div></div>
-      <a className="chapter-link result-appointment" href={appointmentUrl} target="_blank" rel="noreferrer">Agendar procedimento<ArrowUpRight size={21}/></a><ShareLink id={item.id} label={item.name}/>
+      <Link className="chapter-link result-appointment result-journal-detail" href={`/procedimentos#${item.id}`}>Ver detalhes na revista<ArrowUpRight size={21}/></Link><div className="result-contact-links"><a href={appointmentUrl} target="_blank" rel="noreferrer">Agendar procedimento<ArrowUpRight size={15}/></a><ShareLink id={item.id} label={item.name}/></div>
     </div>
   </article>;
 }
@@ -129,7 +130,7 @@ export function ResultsCarousel() {
   return <section ref={root} id="resultados" className="gallery-chapter results-carousel" aria-labelledby="results-title">
     <span id="procedimentos" className="results-anchor" aria-hidden="true"/>
     <div className="gallery-top"><p className="chapter-tag">03 / RESULTADOS & PROCEDIMENTOS</p><span>UM OLHAR PARA CADA DETALHE</span></div>
-    <div className="gallery-heading" data-reveal><h2 id="results-title">Resultados reais.<br/><em>Beleza singular.</em></h2><p>Explore as áreas de cuidado e conheça os registros. Cada plano respeita a sua identidade.</p></div>
+    <div className="gallery-heading" data-reveal><h2 id="results-title">Resultados reais.<br/><em>Beleza singular.</em></h2><div className="results-heading-aside"><p>Explore as áreas de cuidado e conheça os registros. Cada plano respeita a sua identidade.</p><Link href="/procedimentos">Ver revista de procedimentos<ArrowUpRight size={19}/></Link></div></div>
     <div className="results-tabs" role="tablist" aria-label="Áreas dos resultados">{categories.map(({ id, label, Icon }, index) => <button type="button" role="tab" id={`tab-${id}`} key={id} aria-selected={category === id} aria-controls={id} tabIndex={category === id ? 0 : -1} onClick={() => selectCategory(id)} onKeyDown={event => tabKey(event, index)}><Icon size={23} strokeWidth={1.1}/><span>{label}</span><small>0{index + 1}</small></button>)}</div>
     <div className="results-area-intro"><p>{current.description}</p><ShareLink id={category} label={current.label}/></div>
     <div className="results-navigation">
@@ -144,7 +145,7 @@ export function ResultsCarousel() {
         if (event.key === 'ArrowLeft') { event.preventDefault(); moveTo(Math.max(0, slide - 1)); }
       }}>{site.procedures.filter(item => item.category === id).map((item, index) => <ProcedureSlide item={item} active={id === category && index === slide} key={item.id} onOpen={(items, photoIndex) => setViewer({ items, index: photoIndex })}/>)}</div>
     </section>)}
-    <Link className="results-journal" href="/procedimentos"><div><span>A SUA REVISTA DE CUIDADO</span><p>Todos os procedimentos.<br/><em>Cada detalhe, no seu tempo.</em></p></div><span className="results-journal-link">Explorar a revista<ArrowUpRight size={27} strokeWidth={1}/></span></Link>
+    <JournalInvitation/>
     <div className="gallery-end"><p>Fotografias compartilhadas pela Dra. {site.name}.<br/>Resultados individuais. Cada pessoa tem características próprias.</p><a className="chapter-link" href={appointmentUrl} target="_blank" rel="noreferrer">O seu primeiro passo<ArrowUpRight size={21}/></a></div>
     {viewer && <ResultViewer items={viewer.items} initialIndex={viewer.index} onClose={() => setViewer(null)}/>}
   </section>;
