@@ -84,11 +84,16 @@ Os retratos da essência, apresentação e experiência preservam a proporção 
 
 As entradas de seção usam `use-site-motion.ts`: duração curta, uma execução por elemento e suporte à preferência de movimento reduzido, inclusive quando ela muda com a página aberta. O hero usa uma entrada finita, sem deslocar o retrato com o ponteiro ou a rolagem e sem reiniciar ao voltar ao topo. Não há loops de animação contínuos.
 
+## Domínio público
+
+Endereço oficial: **https://www.michelleguimaraes.com.br**. O domínio sem `www` redireciona permanentemente (308) para esse endereço. Ambos estão vinculados ao projeto `dramichelleguimaraes` na Vercel, com DNS mantido na GoDaddy. `site.seo.url` define o endereço oficial nos metadados e no link canônico.
+
+Apontamentos configurados: `A @ → 216.198.79.1` e `CNAME www → 0be111eac848932c.vercel-dns-017.com.`. Os dois TXT em `_vercel` confirmam a titularidade do domínio e de `www` para este projeto. Os demais registros DNS foram preservados.
+
 ## Próximo envio de conteúdo
 
 - Novas fotografias dos procedimentos que ainda não têm registros próprios e aprovação das descrições. Em `site.procedures`, `price` é um número em reais e `duration` é a duração exibida na agenda. Cadastre fotos em `site.results.items` com o grupo correto e as dimensões reais do arquivo.
 - Cursos, valores, formatos, datas e fotografias de aulas ou entrega de certificados. Preencha `site.courses` e `site.courseImage`. Enquanto não houver esse material, a seção usa composição de marca e contato para informações, sem inventar cursos ou certificados.
 - Link oficial do Google Meu Negócio, endereço e número de registro profissional. `site.googleBusiness` está preparado para `profileUrl`, `reviewsUrl` e `embedUrl` (URL de incorporação oficial do Google Maps). O usuário informou que enviará o link depois; nenhum perfil de terceiros foi associado.
-- Domínio e acesso/configuração DNS, somente na etapa final. Depois da conexão, preencha `site.seo.url` com a URL HTTPS definitiva.
 
-Cursos permanecem com a composição existente, conforme solicitado nesta rodada. O Google Meu Negócio e o domínio aguardam os dados do próximo envio.
+Cursos permanecem com a composição existente, conforme solicitado nesta rodada. O Google Meu Negócio aguarda os dados do próximo envio.

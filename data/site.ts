@@ -73,6 +73,6 @@ export const site = {
     { image: '/images/gluteo-registro-01.webp', label: 'Cuidado glúteo / registro 01', alt: 'Fotografia da região glútea compartilhada pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: .75, width: 1200, height: 1600, procedureId: 'gluteo' },
     { image: '/images/gluteo-registro-02.webp', label: 'Cuidado glúteo / registro 02', alt: 'Fotografia da região glútea compartilhada pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: .75, width: 1200, height: 1600, procedureId: 'gluteo' },
   ] },
-  seo: { title: 'Dra. Michelle Guimarães | Biomedicina Estética', description: 'Harmonização facial e corporal, tratamentos capilares e cuidado individualizado com a Dra. Michelle Guimarães. Agende sua avaliação.', url: '' },
+  seo: { title: 'Dra. Michelle Guimarães | Biomedicina Estética', description: 'Harmonização facial e corporal, tratamentos capilares e cuidado individualizado com a Dra. Michelle Guimarães. Agende sua avaliação.', url: 'https://www.michelleguimaraes.com.br' },
 };
 export const appointmentUrl = site.bookingUrl;
