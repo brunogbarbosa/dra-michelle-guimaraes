@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Flower2, Sprout, Sparkles, Expand, Clock3, ChevronDown } from 'lucide-react';
 import { site, appointmentUrl, type Procedure, type ClinicalResult } from '@/data/site';
@@ -143,6 +144,7 @@ export function ResultsCarousel() {
         if (event.key === 'ArrowLeft') { event.preventDefault(); moveTo(Math.max(0, slide - 1)); }
       }}>{site.procedures.filter(item => item.category === id).map((item, index) => <ProcedureSlide item={item} active={id === category && index === slide} key={item.id} onOpen={(items, photoIndex) => setViewer({ items, index: photoIndex })}/>)}</div>
     </section>)}
+    <Link className="results-journal" href="/procedimentos"><div><span>A SUA REVISTA DE CUIDADO</span><p>Todos os procedimentos.<br/><em>Cada detalhe, no seu tempo.</em></p></div><span className="results-journal-link">Explorar a revista<ArrowUpRight size={27} strokeWidth={1}/></span></Link>
     <div className="gallery-end"><p>Fotografias compartilhadas pela Dra. {site.name}.<br/>Resultados individuais. Cada pessoa tem características próprias.</p><a className="chapter-link" href={appointmentUrl} target="_blank" rel="noreferrer">O seu primeiro passo<ArrowUpRight size={21}/></a></div>
     {viewer && <ResultViewer items={viewer.items} initialIndex={viewer.index} onClose={() => setViewer(null)}/>}
   </section>;

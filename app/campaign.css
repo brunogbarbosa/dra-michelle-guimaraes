@@ -2,7 +2,7 @@
 .header:not(.scrolled) { position: absolute; inset: 0 0 auto; height: 104px; color: #f7f3ee; background: transparent; }
 .header:not(.scrolled) .brand-monogram, .header:not(.scrolled) .brand-type small { color: #dcc3aa; }
 .header:not(.scrolled) .mobile-menu { color: #f7f3ee; border-color: #ffffff66; background: transparent; }
-.header.scrolled { position: sticky; top: 0; height: 80px; margin-bottom: 0; background: #fbf4f5; }
+.header.scrolled { position: sticky; top: 0; height: 80px; margin-bottom: 0; background: #fcf8f3; }
 .desktop-nav { display: none; }
 .mobile-menu { display: grid; }
 

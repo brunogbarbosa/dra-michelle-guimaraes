@@ -2,6 +2,16 @@
 
 Site editorial baseado na estrutura retida do Premium Vendas V4, com hero fotográfico, retratos atualizados, identidade oficial, Resultados e Procedimentos em um único carrossel por área, cursos e agendamento online pelo Simples Agenda.
 
+## Revista de procedimentos
+
+A página pública `/procedimentos` apresenta os 19 procedimentos em formato de revista digital, com índice por área, seletor por nome, investimento, duração, agenda e WhatsApp com mensagem específica do procedimento. O menu, o rodapé e a seção de resultados da página inicial dão acesso à revista. As duas páginas compartilham os dados de `data/site.ts` para manter preços e durações sincronizados.
+
+Cada procedimento tem sua própria âncora na revista, por exemplo `/procedimentos#preenchimento-labial`. O botão **Copiar link** preserva o caminho da página. Todos os procedimentos estão no HTML da revista, sem depender de filtros para abrir um link direto. As âncoras antigas da página inicial continuam funcionando.
+
+As galerias oferecem setas acima das fotos, miniaturas, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. Os sete procedimentos faciais sem fotografias têm espaços vazios reservados; nenhum registro genérico foi atribuído a eles. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
+
+A identidade utiliza vinho `#72192f`, vinho profundo, dourado e marfim quente. Fundos, sombras, degradês e detalhes antes puxados para uva foram ajustados, preservando a composição aprovada do hero. O favicon SVG usa esse mesmo vinho com a marca branca original. A revista reutiliza a imagem de compartilhamento existente.
+
 ## Desenvolvimento
 
 Requer Node.js 20.9 ou superior.

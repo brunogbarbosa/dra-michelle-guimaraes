@@ -59,9 +59,9 @@ export function AuthorChapter() {
       <svg className={`${styles.thread} ${styles.threadDesktop}`} viewBox="0 0 1600 110" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <defs>
           <radialGradient id={`${uid}-author-pearl`} cx="30%" cy="25%">
-            <stop stopColor="#f8eeee" />
-            <stop offset=".5" stopColor="#bc8d96" />
-            <stop offset="1" stopColor="#775059" />
+            <stop stopColor="#fbf0e2" />
+            <stop offset=".5" stopColor="#bd8b76" />
+            <stop offset="1" stopColor="#7a4b43" />
           </radialGradient>
         </defs>
         <path d="M -30 30 C 260 84 540 91 800 58 C 1065 25 1320 91 1630 27" pathLength="1" vectorEffect="non-scaling-stroke" data-author-motion="line" />
@@ -71,9 +71,9 @@ export function AuthorChapter() {
       <svg className={`${styles.thread} ${styles.threadMobile}`} viewBox="0 0 430 546" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <defs>
           <radialGradient id={`${uid}-author-pearl-mobile`} cx="30%" cy="25%">
-            <stop stopColor="#f8eeee" />
-            <stop offset=".5" stopColor="#bc8d96" />
-            <stop offset="1" stopColor="#775059" />
+            <stop stopColor="#fbf0e2" />
+            <stop offset=".5" stopColor="#bd8b76" />
+            <stop offset="1" stopColor="#7a4b43" />
           </radialGradient>
         </defs>
         <path d="M -20 475 C 55 498 90 529 150 538 C 236 551 335 543 450 518" pathLength="1" vectorEffect="non-scaling-stroke" data-author-motion="line" />

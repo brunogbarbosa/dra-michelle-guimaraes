@@ -22,7 +22,7 @@ export const site = {
   instagram: 'https://www.instagram.com/dramichelle.guimaraes/',
   instagramHandle: '@dramichelle.guimaraes',
   philosophy: ['SUA BELEZA.', 'SUA ESSÊNCIA.', 'SEU TEMPO.'],
-  colors: { paper: '#fbf4f5', ink: '#2c2427', taupe: '#9c707d', champagne: '#c6a24c', dark: '#722a50', wine: '#33232c', muted: '#77676d' },
+  colors: { paper: '#fcf8f3', ink: '#301f24', taupe: '#a07165', champagne: '#c6a24c', dark: '#72192f', wine: '#351c23', muted: '#77635d' },
   brand: { logo: '/brand/logo.webp', seal: '/brand/sublogo-white.webp' },
   images: { hero: '/images/michelle-retrato-2026.webp', essence: '/images/michelle-essencia-telefone.webp', about: '/images/michelle-sobre-2026.webp', beauty: '/images/michelle-ciencia-2026.webp' },
   procedures: [

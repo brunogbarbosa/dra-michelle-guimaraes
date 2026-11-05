@@ -22,12 +22,12 @@ export function EssenceChapter() {
     <div className="essence-stage">
       <div className="essence-wash" aria-hidden="true"/>
       <svg className="essence-thread essence-thread-desktop" viewBox="0 0 1440 740" fill="none" aria-hidden="true">
-        <defs><radialGradient id={`${uid}-pearl`} cx="30%" cy="25%"><stop stopColor="#f8eeee"/><stop offset=".5" stopColor="#bc8d96"/><stop offset="1" stopColor="#775059"/></radialGradient></defs>
+        <defs><radialGradient id={`${uid}-pearl`} cx="30%" cy="25%"><stop stopColor="#fbf0e2"/><stop offset=".5" stopColor="#bd8b76"/><stop offset="1" stopColor="#7a4b43"/></radialGradient></defs>
         <path d="M280 790 C720 810 660 530 855 350 S1180 255 1490 360" pathLength="1" data-essence-motion="line"/>
         <circle cx="753" cy="474" r="10" fill={`url(#${uid}-pearl)`} data-essence-motion="bead" data-delay="600"/>
       </svg>
       <svg className="essence-thread essence-thread-mobile" viewBox="0 0 400 900" fill="none" aria-hidden="true">
-        <defs><radialGradient id={`${uid}-pearl-mobile`} cx="30%" cy="25%"><stop stopColor="#f8eeee"/><stop offset=".5" stopColor="#bc8d96"/><stop offset="1" stopColor="#775059"/></radialGradient></defs>
+        <defs><radialGradient id={`${uid}-pearl-mobile`} cx="30%" cy="25%"><stop stopColor="#fbf0e2"/><stop offset=".5" stopColor="#bd8b76"/><stop offset="1" stopColor="#7a4b43"/></radialGradient></defs>
         <path d="M-30 625 C110 638 170 799 410 793" pathLength="1" data-essence-motion="line"/>
         <circle cx="82" cy="669" r="5.5" fill={`url(#${uid}-pearl-mobile)`} data-essence-motion="bead" data-delay="600"/>
       </svg>
