@@ -78,7 +78,9 @@ Os arquivos WebP já são redimensionados e comprimidos antes da publicação e 
 
 ## Movimento
 
-Os retratos do hero, essência, apresentação e experiência preservam a proporção original com `object-fit: contain`. As seções acompanham a altura das imagens para evitar cortes em telas largas ou baixas. O retrato do hero não recebe filtro de escurecimento nem máscara superior; a navegação usa fundo liso, sem sombra, degradê ou desfoque, no desktop e no celular.
+O hero mantém a composição original do Premium Vendas V4: retrato como fundo amplo à direita, título monumental à esquerda, arcos, assinatura e navegação sobre a composição. O enquadramento usa `cover` alinhado ao topo para preservar a cabeça; a fotografia não recebe filtro de escurecimento nem máscara superior. O degradê lateral permite ler o texto sem escurecer o rosto. A navegação é transparente no topo e lisa após a rolagem, sem sombra, degradê próprio ou desfoque, no desktop e no celular.
+
+Os retratos da essência, apresentação e experiência preservam a proporção original com `object-fit: contain`. Essas seções acompanham a altura das imagens para evitar cortes em telas largas ou baixas.
 
 As entradas de seção usam `use-site-motion.ts`: duração curta, uma execução por elemento e suporte à preferência de movimento reduzido, inclusive quando ela muda com a página aberta. O hero usa uma entrada finita, sem deslocar o retrato com o ponteiro ou a rolagem e sem reiniciar ao voltar ao topo. Não há loops de animação contínuos.
 

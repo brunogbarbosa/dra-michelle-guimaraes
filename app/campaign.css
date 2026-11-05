@@ -1,7 +1,7 @@
 .header { z-index: 30; border: 0; transition: height .35s, background-color .35s, color .35s; }
-.header:not(.scrolled) { position: absolute; inset: 0 0 auto; height: 104px; color: #33232c; background: #fbf4f5; }
+.header:not(.scrolled) { position: absolute; inset: 0 0 auto; height: 104px; color: #f7f3ee; background: transparent; }
 .header:not(.scrolled) .brand-monogram, .header:not(.scrolled) .brand-type small { color: #dcc3aa; }
-.header:not(.scrolled) .mobile-menu { color: #33232c; border-color: #722a5030; background: transparent; }
+.header:not(.scrolled) .mobile-menu { color: #f7f3ee; border-color: #ffffff66; background: transparent; }
 .header.scrolled { position: sticky; top: 0; height: 80px; margin-bottom: 0; background: #fbf4f5; }
 .desktop-nav { display: none; }
 .mobile-menu { display: grid; }
@@ -12,7 +12,7 @@
 .campaign::after { background: radial-gradient(ellipse at 80% 38%, transparent 0%, #18151355 80%); mix-blend-mode: multiply; }
 .campaign-portrait { position: absolute; z-index: 0; inset: 0 0 0 40%; pointer-events: none; }
 .campaign-silhouette { position: absolute; inset: 0; overflow: hidden; }
-.campaign-original { object-fit: contain; object-position: center top; filter: none; transform: none; }
+.campaign-original { object-fit: cover; object-position: center top; filter: none; transform: none; }
 .campaign-organic { position: absolute; z-index: 2; pointer-events: none; border: 1px solid #e9d4ba52; }
 .campaign-organic-one { width: 57vw; height: 72vw; max-height: 1060px; right: -7vw; top: -19vw; border-radius: 50%; transform: rotate(22deg); }
 .campaign-organic-two { width: 49vw; height: 65vw; max-height: 950px; right: -3vw; top: -14vw; border-radius: 50%; transform: rotate(22deg); border-color: #e9d4ba28; }
