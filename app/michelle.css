@@ -124,7 +124,9 @@ body .header.scrolled { background: #fbf4f5; color: #33232c; }
 @media (max-width: 1049px) { .header .desktop-nav { display: none; } .header-actions { margin-left: auto; } .header-booking { display: none; } }
 @media (max-width: 900px) { .care-index a { padding-inline: 12px; gap: 10px; } .care-index strong { font-size: 29px; } .care-index a > svg:first-of-type { display: none; } .courses-copy { padding: 65px 8%; } .courses-art { min-height: 620px; } }
 @media (max-width: 700px) {
-  .header .brand-logo { width: 170px; height: 70px; }
+  /* Show the official MG mark from the existing 1000 × 382 logo, without its lettering. */
+  .header .wordmark { position: relative; display: block; width: 76px; height: 52px; overflow: hidden; flex: none; }
+  .header .wordmark .brand-logo { position: absolute; top: 0; left: -89px; width: 250px; height: auto; max-width: none; }
   body .header.scrolled { background: transparent; }
   .header:not(.scrolled) .brand-logo, .header.scrolled .brand-logo { filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(600%) hue-rotate(4deg) brightness(92%) contrast(88%); }
   .header:not(.scrolled) .mobile-menu, .header.scrolled .mobile-menu { color: #94712d; border-color: #94712d80; }
