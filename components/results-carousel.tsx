@@ -27,7 +27,7 @@ function ProcedureSlide({ item, active, onOpen }: { item: Procedure; active: boo
         <Image className="result-photo-image" src={photo.image} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 700px) 88vw, 46vw" loading={active ? 'eager' : 'lazy'}/>
         <span className="result-expand"><Expand size={19}/><span>Ampliar</span></span>
       </button>
-      <div className="result-photo-caption"><span>{photo.orientation === 'single' ? 'REGISTRO REAL' : 'ANTES & DEPOIS'}</span><span>{photoIndex + 1} / {records.length}</span></div>
+      <div className="result-photo-caption"><span>{photo.kind === 'illustration' ? 'IMAGEM ILUSTRATIVA' : photo.orientation === 'single' ? 'REGISTRO REAL' : 'ANTES & DEPOIS'}</span><span>{photoIndex + 1} / {records.length}</span></div>
       {records.length > 1 && <div className="result-thumbnails" aria-label={`Fotos de ${item.name}`}>{records.map((record, index) => <button key={record.image} onClick={() => setPhotoIndex(index)} aria-label={`Ver foto ${index + 1} de ${item.name}`} aria-pressed={index === photoIndex}><Image src={record.image} alt="" width={96} height={96} sizes="72px"/></button>)}</div>}
     </div> : <div className="result-empty-art" aria-hidden="true">{item.category === 'capilar' ? <Sprout size={82} strokeWidth={.8}/> : <Flower2 size={82} strokeWidth={.8}/>}<p>Um cuidado.<br/><em>Todo seu.</em></p></div>}
     <div className="result-treatment"><p className="chapter-tag">{item.category} / CUIDADO INDIVIDUALIZADO</p><h3>{item.name}</h3><p>{item.description}</p>

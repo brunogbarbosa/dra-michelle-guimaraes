@@ -24,7 +24,7 @@ export function JournalPhotoGallery({ photos, name }: { photos: ClinicalResult[]
   };
 
   return <div className={styles.gallery} aria-label={`Fotografias de ${name}`}>
-    <div className={styles.galleryTop}><span>{photo.orientation === 'single' ? 'REGISTROS REAIS' : 'ANTES & DEPOIS'}</span><div><span aria-live="polite">{String(current + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span>{photos.length > 1 && <><button type="button" disabled={current === 0} onClick={() => moveTo(current - 1)} aria-label={`Foto anterior de ${name}`}><ArrowLeft size={19}/></button><button type="button" disabled={current === photos.length - 1} onClick={() => moveTo(current + 1)} aria-label={`Próxima foto de ${name}`}><ArrowRight size={19}/></button></>}</div></div>
+    <div className={styles.galleryTop}><span>{photo.kind === 'illustration' ? 'IMAGEM ILUSTRATIVA' : photo.orientation === 'single' ? 'REGISTROS REAIS' : 'ANTES & DEPOIS'}</span><div><span aria-live="polite">{String(current + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span>{photos.length > 1 && <><button type="button" disabled={current === 0} onClick={() => moveTo(current - 1)} aria-label={`Foto anterior de ${name}`}><ArrowLeft size={19}/></button><button type="button" disabled={current === photos.length - 1} onClick={() => moveTo(current + 1)} aria-label={`Próxima foto de ${name}`}><ArrowRight size={19}/></button></>}</div></div>
     <div className={styles.galleryStage} style={{ aspectRatio: `${photo.width} / ${photo.height}` }}>
       <div className={styles.photoRail} ref={rail} tabIndex={0} role="region" aria-roledescription="carrossel" aria-label={`Galeria de ${name}`} onKeyDown={event => {
         if (event.target !== event.currentTarget) return;

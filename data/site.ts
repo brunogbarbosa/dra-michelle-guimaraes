@@ -1,7 +1,7 @@
 export type Procedure = { id: string; category: 'facial' | 'corporal' | 'capilar'; name: string; description: string; image?: string; price: number | null; priceNote?: string; duration: string; resultGroup?: string };
 export type Course = { id: string; name: string; description: string; image?: string; price: number | null };
 export type Testimonial = { quote: string; name: string };
-export type ClinicalResult = { image: string; label: string; alt: string; orientation: string; beforeShare: number; comparisonRatio: number; width: number; height: number; procedureId: string };
+export type ClinicalResult = { image: string; label: string; alt: string; orientation: string; beforeShare: number; comparisonRatio: number; width: number; height: number; procedureId: string; kind?: 'clinical' | 'illustration' };
 
 export const site = {
   name: 'Michelle Guimarães',
@@ -26,8 +26,9 @@ export const site = {
   brand: { logo: '/brand/logo.webp', seal: '/brand/sublogo-white.webp' },
   images: { hero: '/images/michelle-retrato-2026.webp', essence: '/images/michelle-essencia-telefone.webp', about: '/images/michelle-sobre-2026.webp', beauty: '/images/michelle-ciencia-2026.webp' },
   procedures: [
-    { id: 'botox', category: 'facial', name: 'Botox Full Face', description: 'Planejamento da toxina botulínica para o rosto, considerando a anatomia e a expressão de cada pessoa.', price: 1299.99, duration: '1 hora', resultGroup: 'botox' },
-    { id: 'botox-light', category: 'facial', name: 'Botox light', description: 'Um cuidado direcionado às linhas de expressão, com indicação e planejamento individualizados.', price: 799.99, duration: '1 hora', resultGroup: 'botox-light' },
+    { id: 'botox', category: 'facial', name: 'Botox Full Face', description: 'Planejamento da toxina botulínica para o rosto, considerando a anatomia e a expressão de cada pessoa.', price: 1399.99, duration: '1 hora', resultGroup: 'botox' },
+    { id: 'botox-light', category: 'facial', name: 'Botox Light', description: 'Um cuidado direcionado às linhas de expressão, com indicação e planejamento individualizados.', price: 899.99, duration: '1 hora', resultGroup: 'botox-light' },
+    { id: 'botox-nefertiti', category: 'facial', name: 'Botox Nefertiti', description: 'Planejamento da toxina botulínica para a região do pescoço, com indicação definida após avaliação individual.', price: 1299.99, duration: 'Conforme avaliação' },
     { id: 'preenchimento-labial', category: 'facial', name: 'Preenchimento labial · 1 ml', description: 'Contorno, proporção e volume em equilíbrio com o seu rosto. Cada escolha começa pela avaliação dos seus lábios.', price: 999.99, duration: '1 hora' },
     { id: 'harmonizacao-facial', category: 'facial', name: 'Preenchimento facial · 1 ml', description: 'Avaliação dos contornos e das proporções do rosto para um planejamento que respeita os seus traços.', price: 899.99, duration: '1 hora' },
     { id: 'bioestimulador-hidroxiapatita', category: 'facial', name: 'Bioestimulador de colágeno · Hidroxiapatita de cálcio', description: 'Cuidado com a qualidade da pele a partir de avaliação profissional e planejamento com hidroxiapatita de cálcio.', price: 1099.99, duration: '1 hora' },
@@ -52,8 +53,6 @@ export const site = {
   testimonials: [] as Testimonial[],
   results: { enabled: true, items: [
     { image: '/images/resultado-harmonizacao.webp', label: 'Expressão preservada, traços valorizados', alt: 'Antes e depois de harmonização facial realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: 647 / 1284, comparisonRatio: 647 / 1315, width: 1284, height: 1315, procedureId: 'harmonizacao-facial' },
-    { image: '/images/resultado-frontal.webp', label: 'Região frontal / registro 01', alt: 'Registro de antes e depois da região frontal, compartilhado pela Dra. Michelle Guimarães.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 1284 / 658, width: 1284, height: 1316, procedureId: 'botox' },
-    { image: '/images/resultado-testa.webp', label: 'Região frontal / registro 02', alt: 'Registro de antes e depois da testa, compartilhado pela Dra. Michelle Guimarães.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 1284 / 647, width: 1284, height: 1295, procedureId: 'botox' },
     { image: '/images/resultado-perfil.webp', label: 'Perfil com mais equilíbrio', alt: 'Antes e depois de harmonização de perfil realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .525, comparisonRatio: 642 / 1231, width: 1284, height: 1231, procedureId: 'harmonizacao-facial' },
     { image: '/images/resultado-facial.webp', label: 'Contorno e expressão', alt: 'Antes e depois de harmonização facial realizado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: 642 / 1252, width: 1284, height: 1252, procedureId: 'harmonizacao-facial' },
     { image: '/images/labial-comparativo-01.webp', label: 'Lábios / registro 01', alt: 'Antes e depois de preenchimento labial, em fotografias lado a lado.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1600, height: 1600, procedureId: 'preenchimento-labial' },
@@ -62,9 +61,10 @@ export const site = {
     { image: '/images/labial-comparativo-04.webp', label: 'Lábios / registro 04', alt: 'Antes e depois de preenchimento labial compartilhado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1600, height: 1600, procedureId: 'preenchimento-labial' },
     { image: '/images/facial-perfil-01.webp', label: 'Perfil / registro 01', alt: 'Registro comparativo do perfil facial, em fotografias lado a lado.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1080, height: 1080, procedureId: 'harmonizacao-facial' },
     { image: '/images/facial-perfil-02.webp', label: 'Perfil / registro 02', alt: 'Registro comparativo do perfil facial compartilhado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1600, height: 1600, procedureId: 'harmonizacao-facial' },
-    { image: '/images/botox-frontal-2026.webp', label: 'Região frontal / novo registro', alt: 'Antes e depois da região frontal, em fotografias acima e abaixo.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 2, width: 1600, height: 1600, procedureId: 'botox' },
-    { image: '/images/botox-mento-2026.webp', label: 'Região do mento', alt: 'Registro comparativo da região do mento, em fotografias acima e abaixo.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 2, width: 1600, height: 1600, procedureId: 'botox' },
-    { image: '/images/botox-olhar-2026.webp', label: 'Região dos olhos', alt: 'Antes e depois da região lateral dos olhos, em fotografias lado a lado.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .4, width: 1080, height: 1350, procedureId: 'botox-light' },
+    { image: '/images/botox-nefertiti-ilustracao.webp', label: 'Ilustração da região do pescoço. Não representa resultado de paciente.', alt: 'Imagem ilustrativa do pescoço e do contorno da mandíbula com setas indicando a região.', orientation: 'single', beforeShare: .5, comparisonRatio: 1, width: 1200, height: 1200, procedureId: 'botox-nefertiti', kind: 'illustration' },
+    { image: '/images/botox-nefertiti-registro-01.webp', label: 'Registro comparativo / 01', alt: 'Registro comparativo da região frontal e dos olhos, em fotografias acima e abaixo.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 2, width: 1600, height: 1600, procedureId: 'botox-nefertiti' },
+    { image: '/images/botox-nefertiti-registro-02.webp', label: 'Registro comparativo / 02', alt: 'Registro comparativo da região frontal, em fotografias acima e abaixo.', orientation: 'vertical', beforeShare: .5, comparisonRatio: 2, width: 1600, height: 1600, procedureId: 'botox-nefertiti' },
+    { image: '/images/botox-nefertiti-registro-03.webp', label: 'Registro comparativo / 03', alt: 'Registro comparativo da região lateral dos olhos, em fotografias lado a lado.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1600, height: 1600, procedureId: 'botox-nefertiti' },
     { image: '/images/capilar-comparativo-01.webp', label: 'Cuidado capilar / registro 01', alt: 'Antes e depois do couro cabeludo, em fotografias lado a lado.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1600, height: 1600, procedureId: 'capilar' },
     { image: '/images/capilar-comparativo-02.webp', label: 'Cuidado capilar / registro 02', alt: 'Registro comparativo do couro cabeludo compartilhado pela Dra. Michelle Guimarães.', orientation: 'horizontal', beforeShare: .5, comparisonRatio: .5, width: 1600, height: 1600, procedureId: 'capilar' },
     { image: '/images/corporal-abdomen-01.webp', label: 'Cuidado corporal / registro 01', alt: 'Fotografia da região abdominal compartilhada pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: 458 / 351, width: 458, height: 351, procedureId: 'corporal' },
@@ -72,7 +72,7 @@ export const site = {
     { image: '/images/corporal-braco.webp', label: 'Cuidado corporal / região dos braços', alt: 'Registro da região do braço com marcações para planejamento do cuidado corporal.', orientation: 'single', beforeShare: .5, comparisonRatio: .75, width: 1200, height: 1600, procedureId: 'corporal' },
     { image: '/images/gluteo-registro-01.webp', label: 'Cuidado glúteo / registro 01', alt: 'Fotografia da região glútea compartilhada pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: .75, width: 1200, height: 1600, procedureId: 'gluteo' },
     { image: '/images/gluteo-registro-02.webp', label: 'Cuidado glúteo / registro 02', alt: 'Fotografia da região glútea compartilhada pela Dra. Michelle Guimarães.', orientation: 'single', beforeShare: .5, comparisonRatio: .75, width: 1200, height: 1600, procedureId: 'gluteo' },
-  ] },
+  ] as ClinicalResult[] },
   seo: { title: 'Dra. Michelle Guimarães | Biomedicina Estética', description: 'Harmonização facial e corporal, tratamentos capilares e cuidado individualizado com a Dra. Michelle Guimarães. Agende sua avaliação.', url: 'https://www.michelleguimaraes.com.br' },
 };
 export const appointmentUrl = site.bookingUrl;

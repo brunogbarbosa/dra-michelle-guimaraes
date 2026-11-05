@@ -4,11 +4,11 @@ Site editorial baseado na estrutura retida do Premium Vendas V4, com hero fotogr
 
 ## Revista de procedimentos
 
-A página pública `/procedimentos` apresenta os 19 procedimentos em formato de revista digital, com índice por área, seletor por nome, investimento, duração, agenda e WhatsApp com mensagem específica do procedimento. O menu, o rodapé e a seção de resultados da página inicial dão acesso à revista. As duas páginas compartilham os dados de `data/site.ts` para manter preços e durações sincronizados.
+A página pública `/procedimentos` apresenta os 20 procedimentos em formato de revista digital, com índice por área, seletor por nome, investimento, duração, agenda e WhatsApp com mensagem específica do procedimento. O menu, o rodapé e a seção de resultados da página inicial dão acesso à revista. As duas páginas compartilham os dados de `data/site.ts` para manter preços e durações sincronizados.
 
 Cada procedimento tem sua própria âncora na revista, por exemplo `/procedimentos#preenchimento-labial`. O botão **Copiar link** preserva o caminho da página. Todos os procedimentos estão no HTML da revista, sem depender de filtros para abrir um link direto. As âncoras antigas da página inicial continuam funcionando.
 
-Cada procedimento ocupa um bloco branco independente, separado por espaço do próximo. Os títulos, descrições e preços seguem a mesma hierarquia e o mesmo alinhamento, sem alternância de colunas ou frases decorativas repetidas. As galerias da revista oferecem setas acima das fotos, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. Os sete procedimentos faciais sem fotografias têm espaços vazios reservados; nenhum registro genérico foi atribuído a eles. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
+Cada procedimento ocupa um bloco branco independente, separado por espaço do próximo. Os títulos, descrições e preços seguem a mesma hierarquia e o mesmo alinhamento, sem alternância de colunas ou frases decorativas repetidas. As galerias da revista oferecem setas acima das fotos, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. Os procedimentos sem fotografias têm espaços vazios reservados; nenhum registro genérico foi atribuído a eles. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
 
 A seção de resultados da página inicial convida à revista por uma chamada com capa ilustrativa, um link no título e um botão em cada procedimento, que abre sua âncora correspondente na revista.
 
@@ -57,7 +57,8 @@ Acrescente a âncora à URL pública do site. O botão **Copiar link** gera a UR
 | Capilar | `#capilar` |
 | Cursos | `#cursos` |
 | Botox Full Face | `#botox` |
-| Botox light | `#botox-light` |
+| Botox Light | `#botox-light` |
+| Botox Nefertiti | `#botox-nefertiti` |
 | Preenchimento labial | `#preenchimento-labial` |
 | Preenchimento facial | `#harmonizacao-facial` |
 | Bioestimulador · Hidroxiapatita de cálcio | `#bioestimulador-hidroxiapatita` |
@@ -82,9 +83,11 @@ As âncoras de área selecionam automaticamente a aba do carrossel. As âncoras 
 
 ## Organização dos registros
 
-O catálogo contém os 19 procedimentos da tabela enviada, com os valores e durações transcritos sem recalcular pacotes ou presumir preços por sessão. As variantes de quantidade e número de sessões permanecem separadas. Os IDs antigos foram preservados para manter links já enviados.
+O catálogo contém os procedimentos da tabela enviada e o Botox Nefertiti acrescentado em 05/11/2026, sem recalcular pacotes ou presumir preços por sessão. As variantes de quantidade e número de sessões permanecem separadas. Os IDs antigos foram preservados para manter links já enviados.
 
-Foram acrescentados 16 registros clínicos: quatro comparativos labiais (substituindo os lábios isolados), dois de perfil, dois de região frontal/mento, um da região dos olhos, dois capilares e cinco corporais. Os cinco comparativos faciais anteriores foram mantidos. As fotografias HEIC foram convertidas para WebP. O retrato da essência foi substituído por `IMG_3694.JPG`, em composição vertical sem moldura.
+Os registros labiais, de perfil, capilares e corporais foram preservados. As fotografias HEIC foram convertidas para WebP. O retrato da essência foi substituído por `IMG_3694.JPG`, em composição vertical sem moldura.
+
+Na atualização de Botox de 05/11/2026, Full Face passou a R$ 1.399,99, Light a R$ 899,99 e Nefertiti foi incluído por R$ 1.299,99. A duração do Nefertiti permanece conforme avaliação, pois não foi informada. As cinco fotografias antigas de Botox foram retiradas das galerias. Os anexos 1–10 (`IMG_4252`, `IMG_4255`, `IMG_4253`, `IMG_4258`, `IMG_4248`, `IMG_4242`, `IMG_4243`, `IMG_4257`, `IMG_4244`, `IMG_4240`) não estavam disponíveis; Full Face e Light aguardam o reenvio das fotos. Os anexos 11–14 foram associados ao Nefertiti conforme confirmação explícita do usuário. O anexo 11 é identificado como imagem ilustrativa, sem comparação; os outros três mantêm os comparativos originais, sem retoques, recortes ou molduras.
 
 Os registros são associados por `procedureId` em `site.results.items`. O campo `resultGroup` de um procedimento permite compartilhar a galeria entre suas variantes, sem atribuir uma dosagem ou número de sessões à fotografia. Fotos corporais avulsas permanecem como registros individuais, sem montar pares de antes/depois sem confirmação. As dimensões reais ficam em `width` e `height`.
 

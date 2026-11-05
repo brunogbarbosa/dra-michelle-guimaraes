@@ -30,7 +30,7 @@ export function ResultViewer({ items, initialIndex, onClose }: { items: Clinical
     if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
     if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
   }}>
-    <div className="viewer-top"><div><p className="chapter-tag">UM OLHAR MAIS PRÓXIMO</p><h3 id="viewer-title">{item.label}</h3></div><button className="viewer-icon" onClick={onClose} aria-label="Fechar resultado"><X/></button></div>
+    <div className="viewer-top"><div><p className="chapter-tag">{item.kind === 'illustration' ? 'IMAGEM ILUSTRATIVA' : 'UM OLHAR MAIS PRÓXIMO'}</p><h3 id="viewer-title">{item.label}</h3></div><button className="viewer-icon" onClick={onClose} aria-label="Fechar resultado"><X/></button></div>
     <div className="viewer-stage">{compare && item.orientation !== 'single'
       ? <div className={`comparison ${item.orientation === 'vertical' ? 'vertical' : ''}`} style={{ aspectRatio: item.comparisonRatio }}>
         <div className="compare-half after" style={halfStyle(false)}/><div className="compare-half before" style={halfStyle(true)}/>
