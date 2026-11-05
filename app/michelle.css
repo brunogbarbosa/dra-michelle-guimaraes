@@ -125,9 +125,12 @@ body .header.scrolled { background: #fbf4f5; color: #33232c; }
 @media (max-width: 900px) { .care-index a { padding-inline: 12px; gap: 10px; } .care-index strong { font-size: 29px; } .care-index a > svg:first-of-type { display: none; } .courses-copy { padding: 65px 8%; } .courses-art { min-height: 620px; } }
 @media (max-width: 700px) {
   .header .brand-logo { width: 170px; height: 70px; }
+  body .header.scrolled { background: transparent; }
+  .header:not(.scrolled) .brand-logo, .header.scrolled .brand-logo { filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(600%) hue-rotate(4deg) brightness(92%) contrast(88%); }
+  .header:not(.scrolled) .mobile-menu, .header.scrolled .mobile-menu { color: #94712d; border-color: #94712d80; }
   .header-actions { gap: 0; }
   .header:not(.scrolled), .header.scrolled { height: 86px; padding-inline: 6%; }
-  .campaign-portrait { inset: 86px 0 28%; }
+  .campaign-portrait { inset: 0; }
   .campaign-silhouette { mask-image: none; }
   .campaign-original { object-position: center top; }
   .campaign::before { background: linear-gradient(180deg, transparent 0%, transparent 36%, #241c23c4 58%, #241c23 76%, #241c23 100%); }

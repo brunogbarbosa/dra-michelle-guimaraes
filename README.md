@@ -78,7 +78,7 @@ Os arquivos WebP já são redimensionados e comprimidos antes da publicação e 
 
 ## Movimento
 
-O hero mantém a composição original do Premium Vendas V4: retrato como fundo amplo à direita, título monumental à esquerda, arcos, assinatura e navegação sobre a composição. O enquadramento usa `cover` alinhado ao topo para preservar a cabeça; a fotografia não recebe filtro de escurecimento nem máscara superior. O degradê lateral permite ler o texto sem escurecer o rosto. A navegação é transparente no topo e lisa após a rolagem, sem sombra, degradê próprio ou desfoque, no desktop e no celular.
+O hero mantém a composição original do Premium Vendas V4: retrato como fundo amplo à direita, título monumental à esquerda, arcos, assinatura e navegação sobre a composição. O enquadramento usa `cover` alinhado ao topo para preservar a cabeça; a fotografia não recebe filtro de escurecimento nem máscara superior. O degradê lateral permite ler o texto sem escurecer o rosto. No desktop, a navegação é transparente no topo e lisa após a rolagem. No celular, a fotografia se estende por trás do nav, que permanece transparente ao rolar, com logo e ícone dourados. Não há sombra, degradê próprio ou desfoque no nav.
 
 Os retratos da essência, apresentação e experiência preservam a proporção original com `object-fit: contain`. Essas seções acompanham a altura das imagens para evitar cortes em telas largas ou baixas.
 
