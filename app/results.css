@@ -126,3 +126,4 @@ html { scroll-padding-top: 105px; }
   .campaign { min-height: 840px; height: max(100svh, 840px); }
   .essence-smile { width: 88%; margin: 30px 6% 0; aspect-ratio: 1067 / 1600; }
 }
+.result-treatment > p.result-consultation-note { margin-top: 20px; padding-left: 14px; border-left: 2px solid #c6a24c; font-size: 14px; line-height: 1.7; color: #e6d4c6; }
