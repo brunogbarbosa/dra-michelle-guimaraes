@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { site } from '@/data/site';
+import { site, findProcedure } from '@/data/site';
 import { procedureAreas } from '@/data/procedure-journal';
 import styles from './procedure-journal.module.css';
 
@@ -12,7 +12,11 @@ export function JournalNavigation() {
   useEffect(() => {
     const readHash = () => {
       const id = window.location.hash.slice(1);
-      const procedure = site.procedures.find(item => item.id === id);
+      const procedure = findProcedure(id);
+      if (procedure && procedure.id !== id) {
+        window.history.replaceState(null, '', `#${procedure.id}`);
+        document.getElementById(procedure.id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
       setSelected(procedure?.id ?? '');
       if (procedure) setActive(procedure.category);
       else if (procedureAreas.some(area => area.id === id)) setActive(id);

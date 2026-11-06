@@ -4,7 +4,7 @@ Site editorial baseado na estrutura retida do Premium Vendas V4, com hero fotogr
 
 ## Revista de procedimentos
 
-A página pública `/procedimentos` apresenta os 20 procedimentos em formato de revista digital, com índice por área, seletor por nome, investimento, duração, agenda e WhatsApp com mensagem específica do procedimento. O menu, o rodapé e a seção de resultados da página inicial dão acesso à revista. As duas páginas compartilham os dados de `data/site.ts` para manter preços e durações sincronizados.
+A página pública `/procedimentos` apresenta os 19 procedimentos em formato de revista digital, com índice por área, seletor por nome, investimento, duração, agenda e WhatsApp com mensagem específica do procedimento. O menu, o rodapé e a seção de resultados da página inicial dão acesso à revista. As duas páginas compartilham os dados de `data/site.ts` para manter preços e durações sincronizados.
 
 Cada procedimento tem sua própria âncora na revista, por exemplo `/procedimentos#preenchimento-labial`. O botão **Copiar link** preserva o caminho da página. Todos os procedimentos estão no HTML da revista, sem depender de filtros para abrir um link direto. As âncoras antigas da página inicial continuam funcionando.
 
@@ -61,35 +61,40 @@ Acrescente a âncora à URL pública do site. O botão **Copiar link** gera a UR
 | Botox Nefertiti | `#botox-nefertiti` |
 | Preenchimento labial | `#preenchimento-labial` |
 | Preenchimento facial | `#harmonizacao-facial` |
+| Perfiloplastia | `#perfiloplastia` |
 | Bioestimulador · Hidroxiapatita de cálcio | `#bioestimulador-hidroxiapatita` |
 | Bioestimulador · PLLA | `#bioestimulador-plla` |
-| Fios de sustentação · par | `#fios-sustentacao` |
-| Fios lisos · 10 unidades | `#fios-lisos` |
-| Fios parafusos · par | `#fios-parafusos` |
+| Fios de tração (lifting) | `#fios-tracao` |
+| Fios lisos | `#fios-lisos` |
+| Fios filler | `#fios-filler` |
 | Microagulhamento · Drug delivery | `#microagulhamento-drug-delivery` |
 | Skinbooster | `#skinbooster` |
-| Glúteo com AH · 10 ml | `#gluteo-ah-10ml` |
-| Glúteo com AH · 20 ml | `#gluteo-ah-20ml` |
-| Glúteo com AH · 30 ml | `#gluteo-ah-30ml` |
+| Harmonização glútea | `#harmonizacao-glutea` |
 | Intradermoterapia corporal · 5 sessões | `#harmonizacao-corporal` |
 | Intradermoterapia corporal · avulso | `#intradermoterapia-corporal-avulsa` |
 | Intradermoterapia capilar · 10 sessões | `#intradermoterapia-capilar-10-sessoes` |
 | Intradermoterapia capilar · 5 sessões | `#intradermoterapia-capilar-5-sessoes` |
 | Intradermoterapia capilar · avulso | `#tratamentos-capilares` |
 
-Mantenha os IDs estáveis ao atualizar nomes ou preços, para preservar os links enviados aos pacientes.
+Mantenha os IDs estáveis ao atualizar nomes ou preços, para preservar os links enviados aos pacientes. Quando um procedimento for reorganizado, `aliases` e `findProcedure` mantêm os endereços anteriores: `#fios-sustentacao` abre `#fios-tracao`, `#fios-parafusos` abre `#fios-filler` e os três antigos links glúteos abrem `#harmonizacao-glutea`. A revista também contém âncoras antigas no HTML para funcionar sem JavaScript. Novos links copiados usam o ID atual.
 
 As âncoras de área selecionam automaticamente a aba do carrossel. As âncoras de procedimento selecionam a aba e o slide correspondentes, inclusive no primeiro acesso e ao usar voltar/avançar no navegador. O seletor por nome e as setas ficam acima das fotografias; também há navegação por teclado e gesto horizontal nativo. O carrossel não avança sozinho.
 
 ## Organização dos registros
 
-O catálogo contém os procedimentos da tabela enviada e o Botox Nefertiti acrescentado em 05/11/2026, sem recalcular pacotes ou presumir preços por sessão. As variantes de quantidade e número de sessões permanecem separadas. Os IDs antigos foram preservados para manter links já enviados.
+O catálogo contém os procedimentos e atualizações enviados pela clínica, sem recalcular pacotes ou presumir preços por sessão. As variantes capilares e de intradermoterapia corporal permanecem separadas. A harmonização glútea foi unificada; os fios são apresentados sem quantidade. Os links antigos continuam funcionando.
 
-Os registros labiais, de perfil, capilares e corporais foram preservados. As fotografias HEIC foram convertidas para WebP. O retrato da essência foi substituído por `IMG_3694.JPG`, em composição vertical sem moldura.
+Os registros labiais, de perfil, capilares e de intradermoterapia corporal foram preservados. As fotografias glúteas foram retiradas das galerias conforme solicitado. As fotografias HEIC foram convertidas para WebP. O retrato da essência foi substituído por `IMG_3694.JPG`, em composição vertical sem moldura.
 
 Na atualização de Botox de 05/11/2026, Full Face passou a R$ 1.399,99, Light a R$ 899,99 e Nefertiti foi incluído por R$ 1.299,99. A duração do Nefertiti permanece conforme avaliação, pois não foi informada. As cinco fotografias antigas de Botox foram retiradas das galerias. O reenvio das fotos completou os cinco comparativos de Full Face e os cinco de Light, mantendo a ordem dos anexos. A galeria Full Face corresponde aos arquivos `FULL-FACE (5), (1), (2), (3), (4)`; Light corresponde a `BOTOX LIGHT (4), (5), (1), (2), (3)`. Os anexos 11–14 foram associados ao Nefertiti conforme confirmação explícita do usuário. O anexo 11 é identificado como imagem ilustrativa, sem comparação; os outros três mantêm os comparativos originais. Todas as imagens preservam o enquadramento completo, sem retoques ou molduras.
 
 Os três tipos de Botox trazem o aviso de que a Dra. Michelle também realiza outras modalidades, com indicação e valores sob consulta. A informação fica junto da descrição na página inicial e na revista, inclusive ao abrir uma âncora direta. O aviso é mantido em `consultationNote`; outras modalidades não foram cadastradas com preços presumidos.
+
+Na rodada seguinte, os preenchimentos labial e facial passaram a exibir **R$ 999,99 por ml**. A galeria labial preserva os quatro comparativos e acrescenta três fotos individuais. A galeria facial preserva os cinco registros e recebe `IMG_4260.JPEG`, além de aviso de avaliação e das onze áreas de tratamento em `treatmentAreas`.
+
+A perfiloplastia reúne nariz, lábios e queixo por **R$ 2.699,99**, com os anexos `IMG_4262`, `IMG_4261` e `IMG_4263`. Os bioestimuladores mantêm seus valores e ficam sem fotos. Os fios lisos permanecem por **R$ 399,99**, os fios filler por **R$ 499,99** (valor confirmado), sem indicação de unidades ou par. Fios de tração (lifting) ficam com **Valor sob consulta** e **Necessita de avaliação**; sua galeria contém `IMG_4273`, `IMG_4274`, `IMG_4276` e `IMG_4275`, conforme confirmação do usuário. O primeiro é um registro de três etapas (antes, pós imediato e 15 dias) e não habilita o comparador de duas imagens.
+
+A **Harmonização glútea** ocupa um único item, sem preço fixo e sem fotografias. O texto informa a necessidade de avaliação e as possibilidades de preenchimento, bioestimulador e cuidado com a parte muscular. Durações não informadas para os procedimentos novos ou reorganizados aparecem conforme avaliação. As duas páginas reutilizam esses mesmos dados.
 
 Os registros são associados por `procedureId` em `site.results.items`. O campo `resultGroup` de um procedimento permite compartilhar a galeria entre suas variantes, sem atribuir uma dosagem ou número de sessões à fotografia. Fotos corporais avulsas permanecem como registros individuais, sem montar pares de antes/depois sem confirmação. As dimensões reais ficam em `width` e `height`.
 

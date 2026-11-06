@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Flower2, Sprout, Sparkles, Expand, Clock3, ChevronDown } from 'lucide-react';
-import { site, appointmentUrl, type Procedure, type ClinicalResult } from '@/data/site';
+import { site, appointmentUrl, findProcedure, type Procedure, type ClinicalResult } from '@/data/site';
 import { ShareLink } from './share-link';
 import { ResultViewer } from './result-viewer';
 import { JournalInvitation } from './journal-invitation';
@@ -32,8 +32,9 @@ function ProcedureSlide({ item, active, onOpen }: { item: Procedure; active: boo
     </div> : <div className="result-empty-art" aria-hidden="true">{item.category === 'capilar' ? <Sprout size={82} strokeWidth={.8}/> : <Flower2 size={82} strokeWidth={.8}/>}<p>Um cuidado.<br/><em>Todo seu.</em></p></div>}
     <div className="result-treatment"><p className="chapter-tag">{item.category} / CUIDADO INDIVIDUALIZADO</p><h3>{item.name}</h3><p>{item.description}</p>
       {item.consultationNote && <p className="result-consultation-note" role="note">{item.consultationNote}</p>}
+      {item.treatmentAreas && <div className="result-treatment-areas" role="group" aria-label="Áreas de tratamento"><p>ÁREAS DE TRATAMENTO</p><ul>{item.treatmentAreas.map(area => <li key={area}>{area}</li>)}</ul></div>}
       {records.length > 0 && <p className="result-records-note">{records.length} {records.length === 1 ? 'registro para conhecer de perto.' : 'registros para conhecer de perto.'}</p>}
-      <div className="result-investment"><div><span>INVESTIMENTO</span><strong>{item.price === null ? 'Consulte as condições' : money(item.price)}</strong>{item.priceNote && <small>{item.priceNote}</small>}</div><div className="result-duration"><Clock3 size={19} strokeWidth={1.2}/><span>DURAÇÃO<strong>{item.duration}</strong></span></div></div>
+      <div className="result-investment"><div><span>INVESTIMENTO</span><strong>{item.price === null ? 'Valor sob consulta' : money(item.price)}</strong>{item.priceNote && <small>{item.priceNote}</small>}</div><div className="result-duration"><Clock3 size={19} strokeWidth={1.2}/><span>DURAÇÃO<strong>{item.duration}</strong></span></div></div>
       <Link className="chapter-link result-appointment result-journal-detail" href={`/procedimentos#${item.id}`}>Ver detalhes na revista<ArrowUpRight size={21}/></Link><div className="result-contact-links"><a href={appointmentUrl} target="_blank" rel="noreferrer">Agendar procedimento<ArrowUpRight size={15}/></a><ShareLink id={item.id} label={item.name}/></div>
     </div>
   </article>;
@@ -56,8 +57,9 @@ export function ResultsCarousel() {
       let id: string;
       try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
       const area = categories.find(item => item.id === id);
-      const procedure = site.procedures.find(item => item.id === id);
+      const procedure = findProcedure(id);
       if (!area && !procedure && id !== 'procedimentos' && id !== 'resultados') return;
+      if (procedure && procedure.id !== id) window.history.replaceState(null, '', `#${procedure.id}`);
       const selected = area?.id ?? procedure?.category ?? 'facial';
       const list = site.procedures.filter(item => item.category === selected);
       pending.current = { id: procedure?.id ?? selected, scroll: true };
