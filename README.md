@@ -8,7 +8,9 @@ A página pública `/procedimentos` apresenta os 19 procedimentos em formato de 
 
 Cada procedimento tem sua própria âncora na revista, por exemplo `/procedimentos#preenchimento-labial`. O botão **Copiar link** preserva o caminho da página. Todos os procedimentos estão no HTML da revista, sem depender de filtros para abrir um link direto. As âncoras antigas da página inicial continuam funcionando.
 
-Cada procedimento ocupa um bloco branco independente, separado por espaço do próximo. Os títulos, descrições e preços seguem a mesma hierarquia e o mesmo alinhamento, sem alternância de colunas ou frases decorativas repetidas. As galerias da revista oferecem setas acima das fotos, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. Os procedimentos sem fotografias têm espaços vazios reservados; nenhum registro genérico foi atribuído a eles. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
+A capa combina uma abertura editorial em vinho com o retrato original da doutora no computador e no tablet; no celular, a abertura fica compacta, com foco no título e no acesso ao índice. Os capítulos por área têm numeração e contagem de procedimentos. Cada procedimento ocupa um bloco marfim independente, sem contorno, com título em largura total, descrição, investimento, duração e ações bem separados. Os procedimentos sem fotografias usam uma apresentação compacta, sem grandes caixas vazias ou imagens genéricas. Para inserir fotos depois, acrescente os registros ao grupo correto em `site.results.items`.
+
+As galerias da revista oferecem setas acima das fotos, gesto horizontal, teclado e ampliação, sem avanço automático. As proporções originais dos registros são preservadas. No computador, a galeria e os detalhes ficam lado a lado; em telas menores, os elementos acompanham a ordem de leitura em uma coluna. O índice permanece acessível durante a rolagem, com links por área e seletor por nome.
 
 A seção de resultados da página inicial convida à revista por uma chamada com capa ilustrativa, um link no título e um botão em cada procedimento, que abre sua âncora correspondente na revista.
 
@@ -16,7 +18,7 @@ A seção de resultados da página inicial convida à revista por uma chamada co
 
 Endereço informado: **Estrada Padre Roser, 42 - Sala 707, Vila da Penha, Rio de Janeiro - RJ, 21210-623**. As duas páginas têm mapa interativo perto do rodapé, com links para abrir o Google Maps e traçar a rota. `data/clinic.ts` gera os links a partir de `site.address`. O endereço não pressupõe a existência de um perfil comercial verificado; as avaliações ainda aguardam o link oficial.
 
-A identidade utiliza vinho `#72192f`, vinho profundo, dourado e marfim quente. Fundos, sombras, degradês e detalhes antes puxados para uva foram ajustados, preservando a composição aprovada do hero. O favicon SVG usa esse mesmo vinho com a marca branca original. A revista reutiliza a imagem de compartilhamento existente.
+A identidade utiliza vinho `#72192f`, vinho profundo `#420b18`, dourado e marfim quente. Fundos, sombras, degradês e detalhes antes puxados para uva foram ajustados, preservando a composição aprovada do hero. O favicon SVG usa esse mesmo vinho com a marca branca original. A revista reutiliza a imagem de compartilhamento existente.
 
 ## Desenvolvimento
 
@@ -104,7 +106,9 @@ Os arquivos WebP já são redimensionados e comprimidos antes da publicação e 
 
 ## Movimento
 
-O hero mantém a composição original do Premium Vendas V4: retrato como fundo amplo à direita, título monumental à esquerda, arcos, assinatura e navegação sobre a composição. O enquadramento usa `cover` alinhado ao topo para preservar a cabeça; a fotografia não recebe filtro de escurecimento nem máscara superior. O degradê lateral permite ler o texto sem escurecer o rosto. No desktop, a navegação é transparente no topo e lisa após a rolagem. No celular, a fotografia se estende por trás do nav, que permanece transparente ao rolar, com logo e ícone dourados. Não há sombra, degradê próprio ou desfoque no nav.
+O hero mantém a composição original do Premium Vendas V4: retrato como fundo amplo à direita, título monumental à esquerda, arcos, assinatura e navegação sobre a composição. O enquadramento usa `cover` alinhado ao topo para preservar a cabeça; a fotografia não recebe filtro de escurecimento nem máscara superior. O degradê lateral permite ler o texto sem escurecer o rosto. No desktop, a navegação é transparente no topo e lisa após a rolagem. No celular, permanece transparente ao rolar. A fotografia se estende por trás do nav também no tablet, sem o antigo recuo de 86 px. Não há contorno, sombra, degradê próprio ou desfoque no nav.
+
+Os cabeçalhos das duas páginas usam somente o MG oficial em dourado, com o mesmo desenho e tamanho em todas as telas. `BrandMark` aplica a cor sobre a transparência do monograma já existente em `public/brand/logo.webp`, sem redesenhar a marca nem modificar o arquivo. Os retratos e os registros clínicos foram preservados nesta atualização visual.
 
 Os retratos da essência, apresentação e experiência preservam a proporção original com `object-fit: contain`. Essas seções acompanham a altura das imagens para evitar cortes em telas largas ou baixas.
 

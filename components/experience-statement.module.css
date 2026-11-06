@@ -1,6 +1,6 @@
 .root {
   --experience-paper: #fbf7f4;
-  --experience-ink: #54182b;
+  --experience-ink: #5a1021;
   position: relative;
   isolation: isolate;
   height: clamp(760px, 56.25vw, 1080px);
@@ -66,7 +66,7 @@
 
 .titleMask em {
   padding-right: .08em;
-  color: #852d40;
+  color: #842139;
   font-size: 1.06em;
 }
 
@@ -128,7 +128,7 @@
   z-index: 3;
   top: 11.5%;
   right: 7.2%;
-  color: #5e2633;
+  color: #681329;
   font-family: var(--serif);
   font-size: clamp(16px, 1.3vw, 25px);
   font-style: italic;
@@ -183,7 +183,7 @@
 .quoteMark {
   align-self: stretch;
   border-right: 1px solid color-mix(in srgb, var(--rose-deep) 55%, transparent);
-  color: #8d3444;
+  color: #8a2638;
   font-family: Georgia, serif;
   font-size: clamp(64px, 5.5vw, 106px);
   font-weight: 700;
@@ -239,7 +239,7 @@
   overflow: hidden;
   border: 1px solid transparent;
   border-radius: 999px;
-  background: linear-gradient(110deg, #5c172c, #78293c 55%, #5e182d);
+  background: linear-gradient(110deg, #601327, #72192f 55%, #601327);
   box-shadow: 0 18px 40px rgb(84 20 37 / .11);
   color: #fffaf8;
   font-size: clamp(11px, .92vw, 18px);
@@ -532,7 +532,7 @@
 .photo { width: min(40%, 500px); height: auto; aspect-ratio: 570 / 854; background: transparent; }
 .photo > img:not(.seal) { object-fit: contain; object-position: center top; }
 .photoCopy { top: auto; bottom: 6%; right: 6%; }
-.photoWash { background: linear-gradient(0deg, #34192155, transparent 24%); }
+.photoWash { background: linear-gradient(0deg, #420b1855, transparent 24%); }
 @media (min-width: 1101px) { .root { height: clamp(840px, 62vw, 1120px); } }
 @media (min-width: 701px) and (max-width: 1100px) { .photo { top: 6%; } }
 @media (max-width: 700px) {

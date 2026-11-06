@@ -7,6 +7,7 @@ import { ArrowUpRight, X, Menu } from 'lucide-react';
 import { CampaignHero } from './campaign-hero';
 import { Chapters } from './chapters';
 import { ClinicMap } from './clinic-map';
+import { BrandMark } from './brand-mark';
 import { site, appointmentUrl } from '@/data/site';
 import { useSiteMotion } from './use-site-motion';
 
@@ -32,7 +33,7 @@ function Header() {
 
   return <>
     <header className={scrolled ? 'header scrolled' : 'header'}>
-      <a className="wordmark" href="#inicio" aria-label={`${site.name}, início`}><Image className="brand-logo" src={site.brand.logo} alt="Dra. Michelle Guimarães — Biomedicina Estética" width={240} height={98} preload/></a>
+      <a className="wordmark" href="#inicio" aria-label={`${site.name}, início`}><BrandMark/></a>
       <nav className="desktop-nav" aria-label="Navegação principal">{navigation.map(([name, id]) => <a href={`#${id}`} key={id}>{name}</a>)}<Link href="/procedimentos">Revista de procedimentos</Link></nav>
       <div className="header-actions"><a className="header-booking" href={appointmentUrl} target="_blank" rel="noreferrer">Agendar<ArrowUpRight size={17}/></a><button className="mobile-menu icon-button" ref={trigger} aria-label="Abrir menu" aria-expanded={open} aria-controls="main-menu" onClick={() => setOpen(true)}><Menu/></button></div>
     </header>

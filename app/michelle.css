@@ -1,17 +1,17 @@
 /* Premium Vendas V4, adapted to Michelle Guimarães' official identity. */
 :root { --brand-gold: #c6a24c; }
-body .header:not(.scrolled), body .header.scrolled { position: fixed; inset: 0 0 auto; background-image: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body .header:not(.scrolled), body .header.scrolled { position: fixed; inset: 0 0 auto; border: 0; background-image: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
 body .header:not(.scrolled) { background: transparent; color: #f7f3ee; }
-body .header.scrolled { background: #fcf8f3; color: #351c23; }
-.header .brand-logo { width: 225px; height: 82px; object-fit: contain; }
-.header:not(.scrolled) .brand-logo { filter: brightness(0) invert(1); }
+body .header.scrolled { background: #fcf8f3; color: #420b18; }
 .footer-logo { filter: brightness(0) invert(1); }
 .header.scrolled { background: #fcf8f3; }
-.header .mobile-menu { background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.header .wordmark { display: block; width: 76px; height: 52px; flex: none; }
+body .header .mobile-menu, body .header .header-booking { border: 0; box-shadow: none; }
+body .header .mobile-menu { background: transparent; color: #94712d; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .header-actions { display: flex; align-items: center; gap: 20px; }
-.header-booking { display: flex; align-items: center; gap: 17px; border-bottom: 1px solid currentColor; font-size: 12px; padding: 9px 0; }
+.header-booking { display: flex; align-items: center; gap: 17px; font-size: 12px; padding: 9px 0; }
 .menu-brand { width: 250px; height: auto; object-fit: contain; }
-.header.scrolled .brand-logo, .menu-brand, .official-seal { filter: brightness(0) saturate(100%) invert(14%) sepia(46%) saturate(2493%) hue-rotate(321deg) brightness(85%) contrast(97%); }
+.menu-brand, .official-seal { filter: brightness(0) saturate(100%) invert(14%) sepia(46%) saturate(2493%) hue-rotate(321deg) brightness(85%) contrast(97%); }
 .footer-logo { width: 280px; height: auto; }
 .official-seal { object-fit: contain; }
 .menu-dialog { background: var(--paper); }
@@ -21,7 +21,7 @@ body .header.scrolled { background: #fcf8f3; color: #351c23; }
 .campaign-original { object-position: center top; }
 .campaign-silhouette { mask-image: none; }
 .campaign-title-line:nth-child(3), .campaign-editorial em { color: #e0c38b; }
-.campaign-cta { background: #dcc18b; border-color: #dcc18b; color: #351c23; }
+.campaign-cta { background: #dcc18b; border-color: #dcc18b; color: #420b18; }
 .campaign-seal { bottom: 112px; width: 108px; height: 108px; }
 .campaign-seal img { width: 100%; height: 100%; object-fit: contain; opacity: .86; }
 .campaign-editorial { top: 45%; right: 4.5%; }
@@ -29,18 +29,18 @@ body .header.scrolled { background: #fcf8f3; color: #351c23; }
 .campaign-organic { border-color: #e0c38b50; }
 .campaign-organic-two { border-color: #e0c38b26; }
 @media (min-width: 701px) and (max-height: 880px) { .campaign h1 { font-size: clamp(68px, 11svh, 110px); } }
-@media (min-width: 701px) and (max-width: 1100px) { .campaign-portrait { top: 86px; } }
+@media (min-width: 701px) and (max-width: 1100px) { .campaign-portrait { top: 0; } }
 .essence-editorial { background: var(--paper); }
 .essence-values { background: #f2e8e2; }
 .essence-value { background: #fffaf5bd; }
 .essence-value-icon { background: #eadbd0; }
 .essence-smile { border-radius: 160px 160px 10px 10px; right: 4%; top: 25px; width: 42%; aspect-ratio: 2 / 3; }
 .essence-smile img { object-position: center 25%; }
-.gallery-chapter, .result-dialog, .footer { background: #341921; }
+.gallery-chapter, .result-dialog, .footer { background: #420b18; }
 .gallery-heading p { max-width: 290px; }
 .comparison { max-width: 100%; }
 .social-chapter { background: #f1e7e0; }
-.closing-chapter { background: radial-gradient(ellipse at 85% 15%, #731c32, #31161d 68%); }
+.closing-chapter { background: radial-gradient(ellipse at 85% 15%, #731c32, #330912 68%); }
 .gallery-chapter .chapter-tag, .courses-chapter .chapter-tag { color: #d7bd8e; }
 .care-catalog { padding: 100px 7% 80px; background: #fcf8f3; color: var(--wine); }
 .catalog-intro { display: flex; align-items: end; justify-content: space-between; gap: 50px; }
@@ -63,9 +63,9 @@ body .header.scrolled { background: #fcf8f3; color: #351c23; }
 .procedure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 27px; }
 .procedure-card { border: 1px solid #72192f26; background: #fffdfc; border-radius: 4px 4px 30px 4px; overflow: hidden; scroll-margin-top: 105px; min-width: 0; }
 .procedure-card-text { grid-column: 1 / -1; background: linear-gradient(115deg, #f1e6e0, #f9f3ee); }
-.procedure-image { position: relative; aspect-ratio: 1.1; background: #31161d; }
+.procedure-image { position: relative; aspect-ratio: 1.1; background: #330912; }
 .procedure-image > img { object-fit: contain; }
-.procedure-image figcaption { position: absolute; inset: auto 0 0; padding: 12px 22px; font-size: 9px; letter-spacing: .12em; color: #fff8ef; background: linear-gradient(transparent, #2a151be6); }
+.procedure-image figcaption { position: absolute; inset: auto 0 0; padding: 12px 22px; font-size: 9px; letter-spacing: .12em; color: #fff8ef; background: linear-gradient(transparent, #300811e6); }
 .procedure-copy { padding: 25px 30px 28px; }
 .procedure-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
 .procedure-top > span { font-size: 10px; letter-spacing: .14em; color: var(--muted); }
@@ -85,10 +85,10 @@ body .header.scrolled { background: #fcf8f3; color: #351c23; }
 .share-control { position: relative; }
 .share-link { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; min-height: 40px; padding: 3px 0; white-space: nowrap; }
 .share-link:hover { color: var(--dark); text-decoration: underline; text-underline-offset: 4px; }
-.share-manual { display: block; position: absolute; z-index: 10; right: 0; top: 100%; width: 250px; padding: 15px; background: var(--paper); color: var(--wine); box-shadow: 0 10px 40px #25161b20; font-size: 12px; }
+.share-manual { display: block; position: absolute; z-index: 10; right: 0; top: 100%; width: 250px; padding: 15px; background: var(--paper); color: var(--wine); box-shadow: 0 10px 40px #30081120; font-size: 12px; }
 .share-manual input { display: block; width: 100%; margin-top: 8px; border: 1px solid var(--line); padding: 9px; color: var(--wine); background: white; }
-.courses-chapter { display: grid; grid-template-columns: .95fr 1.05fr; color: #faf3ee; background: #3c1c26; }
-.courses-art { position: relative; min-height: 650px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; overflow: hidden; background: radial-gradient(ellipse at 30% 22%, #84293e, transparent 70%), #2d171e; text-align: center; }
+.courses-chapter { display: grid; grid-template-columns: .95fr 1.05fr; color: #faf3ee; background: #4b0d1a; }
+.courses-art { position: relative; min-height: 650px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; overflow: hidden; background: radial-gradient(ellipse at 30% 22%, #84293e, transparent 70%), #330912; text-align: center; }
 .courses-art > img:not(.course-brand) { object-fit: cover; }
 .course-brand { width: 200px; height: 200px; object-fit: contain; position: relative; }
 .courses-art p { position: relative; font-size: 10px; letter-spacing: .18em; line-height: 2.5; }
@@ -103,7 +103,7 @@ body .header.scrolled { background: #fcf8f3; color: #351c23; }
 .courses-copy > p:not(.chapter-tag) { color: #e5d2c4; font-size: 15px; line-height: 1.8; max-width: 440px; }
 .courses-copy > p + p { margin-top: 17px; }
 .courses-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 34px; }
-.courses-actions .chapter-link { background: #dcc18b; border-color: #dcc18b; color: #341921; font-size: 13px; gap: 20px; }
+.courses-actions .chapter-link { background: #dcc18b; border-color: #dcc18b; color: #420b18; font-size: 13px; gap: 20px; }
 .courses-actions .share-link:hover { color: white; }
 .course-list { grid-column: 1/-1; padding: 0 7% 70px; display: grid; grid-template-columns: repeat(2,1fr); gap: 30px; }
 .course-list article { border-top: 1px solid #dcc18b50; padding-top: 30px; scroll-margin-top: 105px; }
@@ -125,12 +125,8 @@ body .header.scrolled { background: #fcf8f3; color: #351c23; }
 @media (max-width: 1049px) { .header .desktop-nav { display: none; } .header-actions { margin-left: auto; } .header-booking { display: none; } }
 @media (max-width: 900px) { .care-index a { padding-inline: 12px; gap: 10px; } .care-index strong { font-size: 29px; } .care-index a > svg:first-of-type { display: none; } .courses-copy { padding: 65px 8%; } .courses-art { min-height: 620px; } }
 @media (max-width: 700px) {
-  /* Show the official MG mark from the existing 1000 × 382 logo, without its lettering. */
-  .header .wordmark { position: relative; display: block; width: 76px; height: 52px; overflow: hidden; flex: none; }
-  .header .wordmark .brand-logo { position: absolute; top: 0; left: -89px; width: 250px; height: auto; max-width: none; }
   body .header.scrolled { background: transparent; }
-  .header:not(.scrolled) .brand-logo, .header.scrolled .brand-logo { filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(600%) hue-rotate(4deg) brightness(92%) contrast(88%); }
-  .header:not(.scrolled) .mobile-menu, .header.scrolled .mobile-menu { color: #94712d; border-color: #94712d80; }
+  .header:not(.scrolled) .mobile-menu, .header.scrolled .mobile-menu { color: #94712d; border: 0; }
   .header-actions { gap: 0; }
   .header:not(.scrolled), .header.scrolled { height: 86px; padding-inline: 6%; }
   .campaign-portrait { inset: 0; }
