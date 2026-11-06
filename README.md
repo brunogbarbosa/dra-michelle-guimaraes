@@ -16,7 +16,11 @@ A seção de resultados da página inicial convida à revista por uma chamada co
 
 ## Localização
 
-Endereço informado: **Estrada Padre Roser, 42 - Sala 707, Vila da Penha, Rio de Janeiro - RJ, 21210-623**. As duas páginas têm mapa interativo perto do rodapé, com links para abrir o Google Maps e traçar a rota. `data/clinic.ts` gera os links a partir de `site.address`. O endereço não pressupõe a existência de um perfil comercial verificado; as avaliações ainda aguardam o link oficial.
+Endereço informado: **Estrada Padre Roser, 42 - Sala 707, Vila da Penha, Rio de Janeiro - RJ, 21210-623**, no Punto Offices. As duas páginas compartilham um bloco de visita à clínica perto do rodapé, com vídeo, endereço, agendamento e mapa interativo. `data/clinic.ts` gera os links do mapa e da rota a partir de `site.address`. O perfil comercial informado pela clínica é **https://share.google/yhZls9hp0hDRG1R2d**, usado nos botões do perfil e das avaliações.
+
+O carrossel `ClinicReviews` apresenta os quatro relatos distintos enviados em 06/11/2026: os textos completos de Kelly Vergueiro e Paloma Ervilha e dois trechos curtos sem nome visível. A autoria desses trechos não foi presumida. Os textos e as cinco estrelas individuais vêm dos anexos e ficam em `data/clinic-reviews.ts`; não são uma integração automática com a API do Google. Não há nota agregada nem contagem de avaliações presumida. O carrossel tem setas, indicadores, navegação por teclado, gesto horizontal e expansão dos relatos longos, sem rotação automática.
+
+O vídeo original `IMG_4278.MP4` foi convertido para H.264/AAC com início rápido (`faststart`), mantendo o conteúdo completo de aproximadamente 51 segundos e a proporção de 480 × 848. `public/videos/visita-clinica.mp4` tem cerca de 6 MB, ante 9,5 MB do original. A capa WebP de aproximadamente 13 KB é um quadro da própria gravação. O player usa `preload="none"`, não reproduz automaticamente e oferece controles nativos após o toque em **Assistir ao vídeo da clínica**. A descrição textual informa o trajeto e os ambientes mostrados. A âncora `#clinica` leva à visita em vídeo; `#como-chegar` continua funcionando e `#avaliacoes` abre o carrossel.
 
 A identidade utiliza vinho `#72192f`, vinho profundo `#420b18`, dourado e marfim quente. Fundos, sombras, degradês e detalhes antes puxados para uva foram ajustados, preservando a composição aprovada do hero. O favicon SVG usa esse mesmo vinho com a marca branca original. A revista reutiliza a imagem de compartilhamento existente.
 
@@ -128,6 +132,6 @@ Apontamentos configurados: `A @ → 216.198.79.1` e `CNAME www → 0be111eac8489
 
 - Novas fotografias dos procedimentos que ainda não têm registros próprios e aprovação das descrições. Em `site.procedures`, `price` é um número em reais e `duration` é a duração exibida na agenda. Cadastre fotos em `site.results.items` com o grupo correto e as dimensões reais do arquivo.
 - Cursos, valores, formatos, datas e fotografias de aulas ou entrega de certificados. Preencha `site.courses` e `site.courseImage`. Enquanto não houver esse material, a seção usa composição de marca e contato para informações, sem inventar cursos ou certificados.
-- Link oficial do Google Meu Negócio e número de registro profissional. `site.googleBusiness` está preparado para `profileUrl`, `reviewsUrl` e `embedUrl` (URL de incorporação oficial do Google Maps). O endereço já foi fornecido; nenhum perfil comercial de terceiros foi associado.
+- Número de registro profissional e, se disponível, URL oficial de incorporação do Google Maps em `site.googleBusiness.embedUrl`. O perfil comercial e as avaliações já receberam o link enviado em 06/11/2026. Novos depoimentos podem ser acrescentados em `data/clinic-reviews.ts`.
 
-Cursos permanecem com a composição existente, conforme solicitado nesta rodada. O Google Meu Negócio aguarda os dados do próximo envio.
+Cursos permanecem com a composição existente, conforme solicitado.

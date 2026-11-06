@@ -18,7 +18,7 @@ export const site = {
   whatsappUrl: 'https://wa.me/5521971169009?text=Ol%C3%A1%2C%20Dra.%20Michelle!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.',
   bookingUrl: 'http://clinicamichelleguimaraes.simplesagenda.com.br',
   coursesUrl: 'https://wa.me/5521971169009?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Dra.%20Michelle.',
-  googleBusiness: { profileUrl: '', embedUrl: '', reviewsUrl: '' },
+  googleBusiness: { profileUrl: 'https://share.google/yhZls9hp0hDRG1R2d', embedUrl: '', reviewsUrl: 'https://share.google/yhZls9hp0hDRG1R2d' },
   address: 'Estrada Padre Roser, 42 - Sala 707, Vila da Penha, Rio de Janeiro - RJ, 21210-623',
   professionalPhilosophy: 'Beleza, ciência e naturalidade.',
   instagram: 'https://www.instagram.com/dramichelle.guimaraes/',
