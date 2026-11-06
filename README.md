@@ -98,6 +98,10 @@ A perfiloplastia reúne nariz, lábios e queixo por **R$ 2.699,99**, com os anex
 
 A **Harmonização glútea** ocupa um único item, sem preço fixo e sem fotografias. O texto informa a necessidade de avaliação e as possibilidades de preenchimento, bioestimulador e cuidado com a parte muscular. Durações não informadas para os procedimentos novos ou reorganizados aparecem conforme avaliação. As duas páginas reutilizam esses mesmos dados.
 
+Na correção de galerias de 06/11/2026, as três fotos labiais sem a marca foram retiradas da exibição (`labial-comparativo-01`, `02` e `03`). Preenchimento labial fica com quatro registros, todos com a logo. A antiga foto 1 de Preenchimento facial (`resultado-harmonizacao`) passou para Botox Full Face, conforme esclarecimento do usuário; as antigas fotos 3 e 4 de Light também passaram para Full Face. As antigas fotos 2, 3 e 4 de Nefertiti passaram para Light. Full Face fica com oito registros, Light com seis, Nefertiti com apenas a ilustração do pescoço e Preenchimento facial com cinco. A alteração vale para a página inicial e para a revista, pela fonte de dados compartilhada.
+
+Os arquivos das imagens mantêm os nomes existentes, inclusive quando a classificação foi corrigida. O vínculo em `procedureId` e os textos alternativos indicam o procedimento atual. Os arquivos fotográficos, as proporções, os preços e as durações foram preservados.
+
 Os registros são associados por `procedureId` em `site.results.items`. O campo `resultGroup` de um procedimento permite compartilhar a galeria entre suas variantes, sem atribuir uma dosagem ou número de sessões à fotografia. Fotos corporais avulsas permanecem como registros individuais, sem montar pares de antes/depois sem confirmação. As dimensões reais ficam em `width` e `height`.
 
 Cada procedimento reúne suas fotos em miniaturas, com ampliação e comparação quando o original é um antes/depois. As imagens são exibidas na proporção do arquivo, sem molduras, cantos arredondados ou faixas laterais adicionadas. As fotografias clínicas não foram retocadas.
